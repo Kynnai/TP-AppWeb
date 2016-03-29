@@ -4,16 +4,42 @@ angular.module('tp1App')
 
     $scope.hideSuccess = true;
 
+    $scope.user = [ {name: null},
+                    {reason: null},
+                    {email: null},
+                    {message: null}];
+
     $scope.myReason = [{description: null},
                        {description: 'Bug trouvé'},
                        {description: 'Commentaire'},
                        {description: 'Plainte'},
                        {description: 'Recommendations'}];
 
-    /*$scope.user = [{name: null},
-                   {reason: null},
-                   {email: null},
-                   {message: null}];
+    $scope.sendMessage  = [ {body: null},
+                            {color: null}];
+
+      $scope.btnSend = function() {
+          $scope.hideSuccess = false;
+          $http({   method: 'POST',
+                    url: 'https://crispesh.herkuapp.com/api/contact/',
+                    data: { email: "movieapi@yopmail.com",
+                            reason: $scope.user.reason,
+                            body: $scope.user.message,
+                            name: $scope.user.name}
+          })
+              .then(
+                  function successCallback(response) {
+                          $scope.sendMessage.body = "Nous avons bien reçu votre message!";
+                          $scope.sendMessage.color = "alert-success";
+                  },
+                  function errorCallback(response){
+                      $scope.sendMessage= 'Erreur serveur!';
+                      $scope.sendMessage.color = "alert-warning";
+                  }
+              )
+      };
+
+
 
     /*$scope.errorMessage = [];
     $scope.alert = "";
