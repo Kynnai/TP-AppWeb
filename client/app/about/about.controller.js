@@ -2,12 +2,12 @@
 angular.module('tp1App')
   .controller('TP1AboutCtrl', function ($scope, $http) {
 
+      $scope.hideSuccess = true;
+
       $scope.user = [{name: null},
                     {email: null},
                     {reason: null},
                     {message: null}];
-
-      $scope.hideSuccess = true;
 
       $scope.myReason = [{description: null},
                        {description: 'Bug trouvé'},
@@ -15,7 +15,7 @@ angular.module('tp1App')
                        {description: 'Plainte'},
                        {description: 'Recommendations'}];
 
-      $scope.sendMessage  = [{body: null},
+      $scope.aboutMessage  = [{body: null},
                             {color: null}];
 
       $scope.btnSend = function() {
