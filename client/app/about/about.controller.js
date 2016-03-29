@@ -35,7 +35,7 @@ angular.module('tp1App')
                           $scope.sendMessage.color = "alert-success";
                   },
                   function errorCallback(){
-                      $scope.sendMessage= 'Erreur serveur!';
+                      $scope.sendMessage.body = 'Erreur serveur!';
                       $scope.sendMessage.color = "alert-warning";
                   }
               )
