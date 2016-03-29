@@ -1,0 +1,38 @@
+<div ng-controller="TP1MainCtrl">
+  <header class="hero-unit" id="banner">
+    <div class="container">
+      <h1>Six films de l'année 2016 !</h1>
+    </div>
+  </header>
+
+  <br><br><br><br>
+
+  <div ng-show="errorMessage" class="alert alert-warning">
+    {{errorMessage}}
+  </div>
+
+
+  <div ng-init="afficher()">
+      <div ng-repeat="movie in movies | limitTo: 6">
+        <div class="row">
+          <div class="col-md-2 col-md-offset-3">
+            {{movie.Title}}
+          </div>
+          <div class="col-md-4">
+            <img src="{{movie.Poster}}">
+          </div>
+          <div class="col-md-3"></div>
+      </div>
+        <br><br>
+    </div>
+  </div>
+  <div class="container">
+   <div class="row">
+      <div class="col-lg-12">
+        <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in main.awesomeThings">
+          <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}</a></li>
+       </ul>
+     </div>
+   </div>
+  </div>
+</div>

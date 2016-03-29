@@ -1,0 +1,15 @@
+'use strict';
+
+var config = browser.params;
+
+describe('Main View', function() {
+  var page;
+
+  beforeEach(function() {
+    browser.get("/main");
+  });
+
+  it("Regarder si le titre contient Six films de l'année 2016 ! ", function() {
+    expect(element(by.id('banner')).getText()).toBe("Six films de l'année 2016 !");
+  });
+});

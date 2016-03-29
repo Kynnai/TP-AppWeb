@@ -1,0 +1,39 @@
+<div ng-controller="TP1SearchCtrl">
+  <header class="hero-unit" id="banner">
+    <div class="container">
+      <h1>Recherche de film(s)</h1>
+    </div>
+  </header>
+
+  <br><br><br><br>
+
+  <form>
+    <div class="row">
+      <div class="col-md-1 col-md-offset-4">
+        <label for="searchBox" class="control-label">Titre:</label>
+      </div>
+      <div class="col-md-2">
+        <input class="from-control" type="text" id="SearchBox" ng-model="query">
+      </div>
+      <div class="col-md-1">
+        <button class="btn btn-success btn-block" type="button" id="searchButton" ng-click="btnSearch()">Soumettre</button>
+      </div>
+    </div>
+    <br>
+    <div ng-repeat="movie in movies">
+      <div class="row">
+       <div class="col-md-2 col-md-offset-3 text-center">
+          <h4>{{movie.Title}}</h4>
+        </div>
+        <div class="col-md-4">
+          <img src="{{movie.Poster}}">
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+      <br><br>
+    </div>
+    <div ng-show="errorMessage" class="alert alert-warning">
+       {{errorMessage}}
+    </div>
+  </form>
+</div>

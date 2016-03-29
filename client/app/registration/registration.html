@@ -1,0 +1,141 @@
+<div ng-controller="TP1RegistrationCtrl">
+
+  <header class="hero-unit" id="banner" ng-show="hideSuccess">
+    <div class="container">
+      <h1>Inscription</h1>
+    </div>
+  </header>
+
+  <header class="alert-success" ng-hide="hideSuccess">
+    <div class="container">
+      <h1 class="text-center">Votre inscription est confirmée.</h1>
+    </div>
+  </header>
+
+  <br><br><br><br>
+
+  <!--div ng-show="hideSuccess">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div class="{{ alert }}" role="alert">
+          <div ng-repeat="error in errorMessage">{{error}}</div>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div-->
+
+    <form novalidate class="simple-form" name="registrationForm">
+
+      <div class="row">
+        <div class="form-group" ng-class="{ 'has-error' : registrationForm.inputUserFirstName.$error.required && registrationForm.inputUserFirstName.$dirty }">
+          <div class="col-md-2 col-md-offset-3">
+            <label for="inputUserName">Prénom : </label>
+          </div>
+          <div class="col-md-4">
+            <p ng-show="registrationForm.inputUserFirstName.$error.required && registrationForm.inputUserFirstName.$dirty" class="help-block">
+              Veuillez indiquer votre prénom
+            </p>
+            <input type="text" class="form-control" id="inputUserFirstName" name="inputUserFirstName" placeholder="Votre prénomr" ng-model="user.firstName" ng-required="true">
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="form-group" ng-class="{ 'has-error' : registrationForm.inputUserName.$error.required && registrationForm.inputUserName.$dirty }">
+          <div class="col-md-2 col-md-offset-3">
+            <label for="inputUserName">Nom : </label>
+          </div>
+          <div class="col-md-4">
+            <p ng-show="registrationForm.inputUserName.$error.required && registrationForm.inputUserName.$dirty" class="help-block">
+              Veuillez indiquer votre nom
+            </p>
+            <input type="text" class="form-control" id="inputUserName" name="inputUserName" placeholder="Votre nom" ng-model="user.name" ng-required="true">
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="form-group" ng-class="{ 'has-error' : registrationForm.inputEmail.$error.required && registrationForm.inputEmail.$dirty }">
+          <div class="col-md-2 col-md-offset-3">
+            <label for="inputUserName">Courriel : </label>
+          </div>
+          <div class="col-md-4">
+            <p ng-show="registrationForm.inputEmail.$error.required && registrationForm.inputEmail.$dirty" class="help-block">
+              Vous devez entrer une adresse courriel valide
+            </p>
+            <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Votre courriel" ng-model="user.email" ng-required="true">
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="form-group" ng-class="{ 'has-error' : registrationForm.inputPassword.$error.required && registrationForm.inputPassword.$dirty }">
+          <div class="col-md-2 col-md-offset-3">
+            <label for="inputUserName">Mot de passe : </label>
+          </div>
+          <div class="col-md-4">
+            <p ng-show="registrationForm.inputPassword.$error.required && registrationForm.inputPassword.$dirty" class="help-block">
+              Mot de passe vide
+            </p>
+            <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Votre mot de passe" ng-model="user.password" ng-required="true">
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="form-group" ng-class="{ 'has-error' : registrationForm.inputConfPassword.$error.required && registrationForm.inputConfPassword.$dirty }">
+          <div class="col-md-2 col-md-offset-3">
+            <label for="inputUserName">Confirmation : </label>
+          </div>
+          <div class="col-md-4">
+            <p ng-show="registrationForm.inputConfPassword.$error.required && registrationForm.inputConfPassword.$dirty" class="help-block">
+              Confirmation de mot de passe vide
+            </p>
+            <p ng-show="registrationForm.inputConfPassword.$filter(registrationForm.inputConfPassword.$error.required != registrationForm.inputPassword.$error.required) && registrationForm.inputConfPassword.$dirty" class="help-block">
+              La confirmation n'est pas identique au mot de passe
+            </p>
+            <input type="password" class="form-control" id="inputConfPassword" name="inputConfPassword" placeholder="Votre confirmation du mot de passe" ng-model="user.confPassword" ng-required="true">
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col-md-1 col-md-offset-7">
+          <button type="reset" class="btn btn-danger btn-block" ng-click="btnReset()">Effacer</button>
+        </div>
+        <div class="col-md-1">
+          <button type="button" class="btn btn-primary btn-block" ng-click="btnSubmit()" ng-disabled="registrationForm.$invalid">Soumettre</button></div>
+        <div class="col-md-3"></div>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in main.awesomeThings">
+        <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

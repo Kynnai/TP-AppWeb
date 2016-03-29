@@ -1,0 +1,126 @@
+<div ng-controller="TP1AboutCtrl">
+
+  <header class="hero-unit" id="banner" ng-show="hideSuccess">
+    <div class="container">
+      <h1>Contact</h1>
+    </div>
+  </header>
+
+  <header class="alert-success" id="successBanner" ng-hide="hideSuccess">
+    <div class="container">
+      <h1 class="text-center">Nous avons bien reçu votre message.</h1>
+    </div>
+  </header>
+
+  <br><br><br><br>
+
+  <!--div ng-show="hideSuccess">
+    <div-- class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div class="{{ alert }}" role="alert">
+          <div ng-repeat="error in errorMessage">{{error}}</div>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div-->
+
+    <form novalidate class="simple-form" name="aboutForm">
+
+      <div class="row">
+        <div class="form-group" ng-class="{ 'has-error' : aboutForm.inputUserName.$error.required && aboutForm.inputUserName.$dirty }">
+          <div class="col-md-2 col-md-offset-3">
+            <label for="inputUserName">Nom d'utilisateur : </label>
+          </div>
+          <div class="col-md-4">
+            <p ng-show="aboutForm.inputUserName.$error.required && aboutForm.inputUserName.$dirty" class="help-block">
+              Veuillez indiquer votre nom
+            </p>
+            <input type="text" class="form-control" id="inputUserName" name="inputUserName" placeholder="Votre nom d'utilisateur" ng-model="user.name" ng-required="true">
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="form-group" ng-class="{ 'has-error' : aboutForm.inputAboutReason.$error.required && aboutForm.inputAboutReason.$dirty }">
+          <div class="col-md-2 col-md-offset-3">
+            <label for="inputUserName">Raison : </label>
+          </div>
+          <div class="col-md-4">
+            <p ng-show="aboutForm.inputAboutReason.$error.required && aboutForm.inputAboutReason.$dirty" class="help-block">
+              Vous devez sélectionner une raison
+            </p>
+            <select class="selectpicker form-control" id="inputAboutReason" name="inputAboutReason" placeholder="Votre Raison" ng-model="user.reason" ng-required="true">
+              <option ng-repeat="reason in myReason">
+                {{ reason.description }}
+              </option>
+            </select>
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="form-group" ng-class="{ 'has-error' : aboutForm.inputEmail.$error.required && aboutForm.inputEmail.$dirty }">
+          <div class="col-md-2 col-md-offset-3">
+            <label for="inputUserName">Courriel : </label>
+          </div>
+          <div class="col-md-4">
+            <p ng-show="aboutForm.inputEmail.$error.required && aboutForm.inputEmail.$dirty" class="help-block">
+              Vous devez entrer une adresse courriel valide
+            </p>
+            <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Votre courriel" ng-model="user.email" ng-required="true">
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="form-group" ng-class="{ 'has-error' : aboutForm.inputMessage.$error.required && aboutForm.inputMessage.$dirty }">
+          <div class="col-md-2 col-md-offset-3">
+            <label for="inputUserName">Message : </label>
+          </div>
+          <div class="col-md-4">
+            <p ng-show="aboutForm.inputMessage.$error.required && aboutForm.inputMessage.$dirty" class="help-block">
+              Vous devez entrer un message
+            </p>
+
+            </p>
+            <textarea type="email" class="form-control" id="inputMessage" name="inputMessage" placeholder="Votre message" ng-model="user.message" ng-required="true"></textarea>
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col-md-1 col-md-offset-7">
+          <button type="reset" class="btn btn-danger btn-block" ng-click="btnReset()" id="btnErase">Effacer</button>
+        </div>
+        <div class="col-md-1">
+          <button type="submit" class="btn btn-success btn-block" ng-disabled="aboutForm.$invalid">Envoyer</button>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in main.awesomeThings">
+        <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
