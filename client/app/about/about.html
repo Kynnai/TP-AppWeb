@@ -44,7 +44,7 @@
 
       <br>
 
-      <div class="row">
+      <!--div class="row">
         <div class="form-group" ng-class="{ 'has-error' : aboutForm.inputAboutReason.$error.required && aboutForm.inputAboutReason.$dirty }">
           <div class="col-md-2 col-md-offset-3">
             <label for="inputUserName">Raison : </label>
@@ -61,7 +61,7 @@
           </div>
           <div class="col-md-3"></div>
         </div>
-      </div>
+      </div-->
 
       <br>
 
@@ -106,11 +106,12 @@
           <button type="reset" class="btn btn-danger btn-block" ng-click="btnReset()" id="btnErase">Effacer</button>
         </div>
         <div class="col-md-1">
-          <button type="submit" class="btn btn-success btn-block" ng-disabled="aboutForm.$invalid">Envoyer</button>
+          <button type="submit" class="btn btn-success btn-block" ng-disabled="aboutForm.$invalid || aboutForm.$pristine">Envoyer</button>
         </div>
         <div class="col-md-3"></div>
       </div>
-
+      {{aboutForm.$invalid}}
+      {{aboutForm}}
     </form>
   </div>
 </div>
