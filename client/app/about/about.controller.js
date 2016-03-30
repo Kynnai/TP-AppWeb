@@ -1,50 +1,43 @@
 'use strict';
 angular.module('tp1App')
-  .controller('TP1AboutCtrl', function ($scope) {
+  .controller('TP1AboutCtrl', function ($scope, $http) {
 
-    $scope.hideSuccess = true;
+      $scope.hideSuccess = true;
 
-    $scope.myReason = [{description: null},
+      $scope.user = [{name: null},
+                    {email: null},
+                    {reason: null},
+                    {message: null}];
+
+      $scope.myReason = [{description: null},
                        {description: 'Bug trouvé'},
                        {description: 'Commentaire'},
                        {description: 'Plainte'},
                        {description: 'Recommendations'}];
 
-    /*$scope.user = [{name: null},
-                   {reason: null},
-                   {email: null},
-                   {message: null}];
+      $scope.aboutMessage  = [{body: null},
+                            {color: null}];
 
-    /*$scope.errorMessage = [];
-    $scope.alert = "";
+      $scope.btnSend = function() {
 
-    $scope.btnSend = function() {
-      $scope.errorMessage = [];
-      $scope.alert = "";
-      if ($scope.user.name == null || $scope.user.name == "") {
-        $scope.errorMessage.push("Nom d'utilisateur vide");
-      }
-      if ($scope.user.reason == null || $scope.user.reason == "") {
-        $scope.errorMessage.push("Vous devez sélectionner une raison");
-      }
-      if ($scope.user.email == null || $scope.user.email == "") {
-        $scope.errorMessage.push("Adresse courriel invalide");
-      }
-      if ($scope.user.message == null || $scope.user.message == "") {
-        $scope.errorMessage.push("Message vide");
-      }
-      if($scope.errorMessage[0] != null){
-        $scope.alert = "alert alert-danger"
-      }
-      else{
-        $scope.hideSuccess = false;
-      }
+          $scope.hideSuccess = false;
 
-    }
-    $scope.btnReset = function(){
-      $scope.user.name = null;
-      $scope.user.reason = null;
-      $scope.user.email = null;
-      $scope.user.message = null;
-      }*/
+          $http({   method: 'POST',
+                    url: 'http://crispesh.herokuapp.com/api/contact',
+                    data: { email: "movieapi@yopmail.com",
+                            reason: $scope.user.reason,
+                            body: $scope.user.message,
+                            name: $scope.user.name}
+          })
+              .then(
+                  function successCallback() {
+                          $scope.sendMessage.body = "Nous avons bien reçu votre message!";
+                          $scope.sendMessage.color = "alert-success";
+                  },
+                  function errorCallback(){
+                      $scope.sendMessage.body = 'Erreur serveur!';
+                      $scope.sendMessage.color = "alert-warning";
+                  }
+              )
+      };
   });
