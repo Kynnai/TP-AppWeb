@@ -11,12 +11,9 @@ angular.module('tp1App')
                     {password: null},
                     {confPassword: null}];
 
-      $scope.registrationMessage = [{body: null},
-                                    {color: null}];
+      $scope.registrationMessage = {color: null};
 
-      $scope.messageServeur = [ {body: null},
-                                {color: null},
-                                {code: null}];
+      $scope.messageServeur = [{message: null}];
 
       $scope.btnSubmit = function(){
           $http({   method: 'POST',
@@ -27,23 +24,23 @@ angular.module('tp1App')
                     lastname: $scope.user.lastName}
           })
               .then(
-                  function successCallback() {
-                      $scope.registrationMessage.body = "Votre inscription est confirmée!";
+                  function successCallback(response) {
+                      $scope.messageServeur = [{message: null}];
+                      $scope.messageServeur.push({message: "Votre inscription est confirmée!"});
+                      $scope.messageServeur.push({message: null});
                       $scope.registrationMessage.color = "alert-success";
                       $scope.hideSuccess = false;
                   },
                   function errorCallback(response){
                       $scope.registrationMessage.color = "alert-danger";
-                      if(response = 403){
-                          $scope.registrationMessage.code = "403";
-                          $scope.registrationMessage.body = "Non autorisé!";
-                      }
-                      else if(response = 410){
-                          $scope.registrationMessage.code = "410";
-                          $scope.registrationMessage.body = "Erreur de validations!";
-                      }
+                      $scope.messageServeur = [{message: null}];
+                      $scope.messageServeur.push({message: response.data.code + " " + response.data.message});
+                      $scope.messageServeur.push({message: null});
+                      angular.forEach(response.data.errors, function(value, key){
+                          $scope.messageServeur.push({message: value.property_path.concat(" : ").concat(value.message)});
+                      });
+                      $scope.messageServeur.push({message: null});
                   }
-
               )
       };
   });

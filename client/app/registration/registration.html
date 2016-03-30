@@ -8,7 +8,11 @@
 
   <header class="{{registrationMessage.color}}" id="successBanner" ng-hide="hideSuccess">
     <div class="container">
-      <h1 class="text-center">{{registrationMessage.body}}</h1>
+      <h1 class="text-center">
+        <option ng-repeat="msg in messageServeur">
+        {{ msg.message }}
+      </option></h3>
+      </h1>
     </div>
   </header>
 
@@ -16,7 +20,10 @@
 
     <form novalidate class="simple-form" name="registrationForm" ng-show="hideSuccess">
       <div class="row text-center">
-        <div class="{{registrationMessage.color}}" id="registrationMessage">{{registrationMessage.code}}  {{registrationMessage.body}}</div>
+        <h3 class="{{registrationMessage.color}}" id="registrationMessage">
+          <option ng-repeat="error in messageServeur">
+            {{ error.message }}
+          </option></h3>
       </div>
 
       <br>
