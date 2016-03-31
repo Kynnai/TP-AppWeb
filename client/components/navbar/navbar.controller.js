@@ -3,21 +3,29 @@
 class NavbarController {
   //start-non-standard
   menu = [{
-    'title': 'Accueil',
-    'state': 'main'
-  },
-  {
-    'title': 'Recherche',
-    'state': 'search'
-  },
-  {
-    'title': 'Inscription',
-    'state': 'registration'
-  },
-  {
-    'title': 'Contact',
-    'state': 'about'
-  },
+      'title': 'Accueil',
+      'state': 'main'
+    },
+    {
+      'title': 'Recherche',
+      'state': 'search'
+    },
+    {
+      'title': 'Liste de Film',
+      'state': 'playList'
+    },
+    {
+      'title': 'Contact',
+      'state': 'about'
+    },
+    {
+      'title': 'Inscription',
+      'state': 'registration'
+    },
+    {
+      'title': 'Connexion',
+      'state': 'login'
+    },
   ];
 
   isCollapsed = true;
