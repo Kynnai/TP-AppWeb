@@ -6,6 +6,6 @@ angular.module('tpApp')
       .state('search', {
         url: '/search',
         templateUrl: 'app/search/search.html',
-        controller: 'TP1SearchCtrl'
+        controller: 'TPSearchCtrl'
       });
   });

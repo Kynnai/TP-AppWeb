@@ -6,6 +6,6 @@ angular.module('tpApp')
       .state('registration', {
         url: '/registration',
         templateUrl: 'app/registration/registration.html',
-        controller: 'TP1RegistrationCtrl'
+        controller: 'TPRegistrationCtrl'
       });
   });

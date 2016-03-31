@@ -1,5 +1,5 @@
 'use strict';
-describe('TP1Ctrl', function () {
+describe('TPCtrl', function () {
   // load the controller's module
   beforeEach(module('tpApp'));
   var $controller;

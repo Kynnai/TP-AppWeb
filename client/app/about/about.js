@@ -6,6 +6,6 @@ angular.module('tpApp')
       .state('about', {
         url: '/about',
         templateUrl: 'app/about/about.html',
-        controller: 'TP1AboutCtrl'
+        controller: 'TPAboutCtrl'
       });
   });

@@ -1,5 +1,5 @@
 'use strict';
-describe('TP1RegistrationCtrl', function () {
+describe('TPRegistrationCtrl', function () {
   // load the controller's module
   beforeEach(module('tpApp'));
   var $controller;
@@ -14,7 +14,7 @@ describe('TP1RegistrationCtrl', function () {
 
   it('Lors d une erreur le fond du message devien rouge', function () {
     var $scope = {};
-    $controller('TP1RegistrationCtrl', { $scope: $scope });
+    $controller('TPRegistrationCtrl', { $scope: $scope });
     $scope.user.name = "";
     $scope.btnSubmit();
     expect($scope.alert).toEqual("alert alert-danger");
@@ -22,7 +22,7 @@ describe('TP1RegistrationCtrl', function () {
 
   it('Prenom utilisateur vide retourne un message d erreur', function () {
     var $scope = {};
-    $controller('TP1RegistrationCtrl', { $scope: $scope });
+    $controller('TPRegistrationCtrl', { $scope: $scope });
     $scope.user.firstName = "";
     $scope.user.name = "Ly";
     $scope.user.email = "exemple@fournisseur.com";
@@ -34,7 +34,7 @@ describe('TP1RegistrationCtrl', function () {
 
   it('Nom utilisateur vide retourne un message d erreur', function () {
     var $scope = {};
-    $controller('TP1RegistrationCtrl', { $scope: $scope });
+    $controller('TPRegistrationCtrl', { $scope: $scope });
     $scope.user.firstName = "Alice";
     $scope.user.name = "";
     $scope.user.email = "exemple@fournisseur.com";
@@ -46,7 +46,7 @@ describe('TP1RegistrationCtrl', function () {
 
   it('Adresse courriel vide retourne un message d erreur', function () {
     var $scope = {};
-    $controller('TP1RegistrationCtrl', { $scope: $scope });
+    $controller('TPRegistrationCtrl', { $scope: $scope });
     $scope.user.firstName = "Alice";
     $scope.user.name = "Ly";
     $scope.user.email = "";
@@ -58,7 +58,7 @@ describe('TP1RegistrationCtrl', function () {
 
   it('Mot de passe vide retourne un message d erreur', function () {
     var $scope = {};
-    $controller('TP1RegistrationCtrl', { $scope: $scope });
+    $controller('TPRegistrationCtrl', { $scope: $scope });
     $scope.user.firstName = "Alice";
     $scope.user.name = "Ly";
     $scope.user.email = "exemple@fournisseur.com";
@@ -70,7 +70,7 @@ describe('TP1RegistrationCtrl', function () {
 
   it('Confirmation mot de passe vide retourne un message d erreur', function () {
     var $scope = {};
-    $controller('TP1RegistrationCtrl', { $scope: $scope });
+    $controller('TPRegistrationCtrl', { $scope: $scope });
     $scope.user.firstName = "Alice";
     $scope.user.name = "Ly";
     $scope.user.email = "exemple@fournisseur.com";
@@ -82,7 +82,7 @@ describe('TP1RegistrationCtrl', function () {
 
   it('Confirmation mot de passe different du mot de passe retourne un message d erreur', function () {
     var $scope = {};
-    $controller('TP1RegistrationCtrl', { $scope: $scope });
+    $controller('TPRegistrationCtrl', { $scope: $scope });
     $scope.user.firstName = "Alice";
     $scope.user.name = "Ly";
     $scope.user.email = "exemple@fournisseur.com";
@@ -94,7 +94,7 @@ describe('TP1RegistrationCtrl', function () {
 
   it('Tout es vide retourne plusieurs message d erreur', function () {
     var $scope = {};
-    $controller('TP1RegistrationCtrl', { $scope: $scope });
+    $controller('TPRegistrationCtrl', { $scope: $scope });
 
     $scope.btnSubmit();
     expect($scope.errorMessage[0]).toEqual("Prénom d'utilisateur vide");
@@ -106,12 +106,12 @@ describe('TP1RegistrationCtrl', function () {
 
   it('Apres la correction de toutes les erreurs le fond du message d erreur et les messages disparait', function () {
     var $scope = {};
-    $controller('TP1RegistrationCtrl', { $scope: $scope });
+    $controller('TPRegistrationCtrl', { $scope: $scope });
 
     $scope.btnSubmit();
 
     var $scope = {};
-    $controller('TP1RegistrationCtrl', { $scope: $scope });
+    $controller('TPRegistrationCtrl', { $scope: $scope });
     $scope.user.firstName = "Alice";
     $scope.user.name = "Ly";
     $scope.user.email = "exemple@fournisseur.com";
@@ -124,12 +124,12 @@ describe('TP1RegistrationCtrl', function () {
 
   it('Apres la correction de toutes les erreurs le fond du message d erreur disparait et le message de confirmation apparait', function () {
     var $scope = {};
-    $controller('TP1RegistrationCtrl', { $scope: $scope });
+    $controller('TPRegistrationCtrl', { $scope: $scope });
 
     $scope.btnSubmit();
 
     var $scope = {};
-    $controller('TP1RegistrationCtrl', { $scope: $scope });
+    $controller('TPRegistrationCtrl', { $scope: $scope });
     $scope.user.firstName = "Alice";
     $scope.user.name = "Ly";
     $scope.user.email = "exemple@fournisseur.com";

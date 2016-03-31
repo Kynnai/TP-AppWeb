@@ -1,6 +1,6 @@
 'use strict';
 angular.module('tpApp')
-  .controller('TP1AboutCtrl', function ($scope, $http) {
+  .controller('TPAboutCtrl', function ($scope, $http) {
 
       $scope.hideSuccess = true;
 

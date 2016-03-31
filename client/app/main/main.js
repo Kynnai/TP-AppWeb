@@ -6,7 +6,7 @@ angular.module('tpApp')
       .state('main', {
         url: '/',
         templateUrl: 'app/main/main.html',
-        controller: 'TP1MainCtrl',
+        controller: 'TPMainCtrl',
         controllerAs: 'main'
       });
   });
