@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('tp1App', [
-  'tp1App.constants',
+angular.module('tpApp', [
+  'tpApp.constants',
   'ngCookies',
   'ngResource',
   'ngSanitize',

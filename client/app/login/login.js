@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('fs3App')
+angular.module('tpApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('login', {

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('tp1App')
+angular.module('tpApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('search', {

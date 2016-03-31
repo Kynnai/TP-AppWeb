@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('tp1App')
+angular.module('tpApp')
   .controller('PlayListCtrl', function ($scope) {
     $scope.message = 'Hello';
   });

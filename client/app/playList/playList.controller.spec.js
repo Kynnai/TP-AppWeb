@@ -3,7 +3,7 @@
 describe('Controller: PlayListCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('tp1App'));
+  beforeEach(module('tpApp'));
 
   var PlayListCtrl, scope;
 

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('tp1App')
+angular.module('tpApp')
   .controller('TP1SearchCtrl', function ($scope, $http) {
 
     $scope.movies = {};
