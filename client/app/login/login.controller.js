@@ -1,6 +1,8 @@
 'use strict';
-
 angular.module('tpApp')
-  .controller('LoginCtrl', function ($scope) {
-    $scope.message = 'Hello';
+  .controller('TPLoginCtrl', function ($scope, $http) {
+    $scope.hideSuccess = true;
+
+    $scope.user = [ {email: null},
+                    {password: null}];
   });
