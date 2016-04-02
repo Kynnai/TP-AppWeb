@@ -6,12 +6,13 @@
     </div>
   </header>
 
-  <header class="{{loginMessage.color}}" id="successBanner" ng-hide="hideSuccess">
+  <header class="{{loginMessageBoxColor}}" id="successBanner" ng-hide="hideSuccess">
     <div class="container">
       <h1 class="text-center">
         <option ng-repeat="msg in messageServeur">
           {{ msg.message }}
         </option></h3>
+        {{$rootScope.username}}
       </h1>
     </div>
   </header>
@@ -21,7 +22,7 @@
   <form novalidate class="simple-form" name="loginForm" ng-show="hideSuccess">
     <div class="row text-center">
       <div class="col-md-8 col-md-offset-2">
-        <h3 class="{{loginMessage.color}}" id="registrationMessage">
+        <h3 class="{{loginMessageBoxColor}}" id="registrationMessage">
           <option ng-repeat="error in messageServeur">
             {{ error.message }}
           </option>
