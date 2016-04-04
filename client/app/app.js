@@ -16,8 +16,7 @@ angular.module('tpApp', [
     $locationProvider.html5Mode(true);
 
     jwtInterceptorProvider.tokenGetter = function(config, jwtHelper) {
-
-      // Do not use token to get .html templates
+      
       if (config.url.substr(config.url.length - 5) === '.html' ||
         config.url.indexOf('/api/') === -1
       )

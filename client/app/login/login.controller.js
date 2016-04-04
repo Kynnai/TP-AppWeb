@@ -24,7 +24,9 @@ angular.module('tpApp')
             $rootScope.username = $scope.user.email;
             $rootScope.$broadcast('user:logged',{});
             localStorage.setItem('JWT', data.data.token);
+            localStorage.setItem('USER', $scope.user.email);
             console.log("Saving token to localstorage", data.data.token);
+            location.href="/main"
           },
           function errorCallback(response){
             $scope.loginMessageBoxColor = "alert-danger";

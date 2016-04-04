@@ -2,9 +2,13 @@
 
 //class NavbarController {
 angular.module('tpApp')
-  .controller('NavbarController', function ($scope, $http, $rootScope) {
+  .controller('NavbarController', function ($scope, $http, $rootScope, $location) {
   //start-non-standard
     var jwt = localStorage.getItem('JWT');
+    var user = localStorage.getItem('USER');
+
+    $scope.username = $rootScope.username;
+
     if(jwt === null)
     {
       $scope.menu = [{
@@ -26,7 +30,7 @@ angular.module('tpApp')
         {
           'title': 'Connexion',
           'state': 'login'
-        },
+        }
       ];
     }
     else{
@@ -47,15 +51,20 @@ angular.module('tpApp')
           'state': 'about'
         },
         {
-          'title': $rootScope.username,
-          'state': 'login'
+          'title': user,
+          'state': null
         },
         {
           'title': 'Déconnexion',
-          'state': 'main'
-        },
+          'state': null
+        }
       ];
     }
+
+    function logout(){
+      localStorage.removeItem('JWT');
+      location.href="/main"
+    };
 
    /* $scope.logout = function(){
       $rootScope.$broadcast('user:logout', {});
