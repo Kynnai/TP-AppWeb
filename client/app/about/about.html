@@ -1,4 +1,4 @@
-<div ng-controller="TP1AboutCtrl">
+<div ng-controller="TPAboutCtrl">
 
   <header class="hero-unit" id="banner" ng-show="hideSuccess">
     <div class="container">
@@ -10,11 +10,13 @@
     <div class="container">
         <h1 class="text-center">{{aboutMessage.body}}</h1>
     </div>
-</header>
+  </header>
 
   <br><br><br><br>
 
     <form novalidate class="simple-form" name="aboutForm" ng-show="hideSuccess">
+
+      <br>
 
       <div class="row">
         <div class="form-group" ng-class="{ 'has-error' : aboutForm.inputUserName.$error.required && aboutForm.inputUserName.$dirty }">

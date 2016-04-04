@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('tp1App')
-  .controller('TP1RegistrationCtrl', function ($scope, $http) {
+angular.module('tpApp')
+  .controller('TPRegistrationCtrl', function ($scope, $http) {
       
       $scope.hideSuccess = true;
       
