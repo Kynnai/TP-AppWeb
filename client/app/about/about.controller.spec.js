@@ -1,7 +1,7 @@
 'use strict';
-describe('TPAboutCtrl', function () {
+describe('TP1AboutCtrl', function () {
   // load the controller's module
-  beforeEach(module('tpApp'));
+  beforeEach(module('tp1App'));
   var $controller;
   beforeEach(inject(function (_$controller_) {
     // The injector unwraps the underscores (_) from around the parameter names when matching
@@ -14,7 +14,7 @@ describe('TPAboutCtrl', function () {
 
  it('Lors d une erreur le fond du message devien rouge', function () {
     var $scope = {};
-    $controller('TPAboutCtrl', { $scope: $scope });
+    $controller('TP1AboutCtrl', { $scope: $scope });
     $scope.user.name = "";
     $scope.btnSend();
     expect($scope.alert).toEqual("alert alert-danger");
@@ -22,7 +22,7 @@ describe('TPAboutCtrl', function () {
 
   it('Nom utilisateur vide retourne un message d erreur', function () {
     var $scope = {};
-    $controller('TPAboutCtrl', { $scope: $scope });
+    $controller('TP1AboutCtrl', { $scope: $scope });
     $scope.user.name = "";
     $scope.user.reason = "Bug trouvé"
     $scope.user.email = "exemple@fournisseur.com";
@@ -33,7 +33,7 @@ describe('TPAboutCtrl', function () {
 
   it('Raison vide retourne un message d erreur', function () {
     var $scope = {};
-    $controller('TPAboutCtrl', { $scope: $scope });
+    $controller('TP1AboutCtrl', { $scope: $scope });
     $scope.user.name = "Alice";
     $scope.user.reason = ""
     $scope.user.email = "exemple@fournisseur.com";
@@ -44,7 +44,7 @@ describe('TPAboutCtrl', function () {
 
   it('Adresse courriel vide retourne un message d erreur', function () {
     var $scope = {};
-    $controller('TPAboutCtrl', { $scope: $scope });
+    $controller('TP1AboutCtrl', { $scope: $scope });
     $scope.user.name = "Alice";
     $scope.user.reason = "Bug trouvé"
     $scope.user.email = "";
@@ -55,7 +55,7 @@ describe('TPAboutCtrl', function () {
 
   it('Message vide retourne un message d erreur', function () {
     var $scope = {};
-    $controller('TPAboutCtrl', { $scope: $scope });
+    $controller('TP1AboutCtrl', { $scope: $scope });
     $scope.user.name = "Alice";
     $scope.user.reason = "Bug trouvé"
     $scope.user.email = "exemple@fournisseur.com";
@@ -66,7 +66,7 @@ describe('TPAboutCtrl', function () {
 
   it('Tout es vide retourne plusieurs message d erreur', function () {
     var $scope = {};
-    $controller('TPAboutCtrl', { $scope: $scope });
+    $controller('TP1AboutCtrl', { $scope: $scope });
 
     $scope.btnSend();
     expect($scope.errorMessage[0]).toEqual("Nom d'utilisateur vide");
@@ -77,7 +77,7 @@ describe('TPAboutCtrl', function () {
 
   it('Apres la correction de toutes les erreurs le fond du message d erreur disparait', function () {
     var $scope = {};
-    $controller('TPAboutCtrl', { $scope: $scope });
+    $controller('TP1AboutCtrl', { $scope: $scope });
 
     $scope.btnSend();
 
@@ -92,7 +92,7 @@ describe('TPAboutCtrl', function () {
 
   it('Apres la correction de toutes les erreurs le fond du message d erreur disparait et le message de confirmation apparait', function () {
     var $scope = {};
-    $controller('TPAboutCtrl', { $scope: $scope });
+    $controller('TP1AboutCtrl', { $scope: $scope });
 
     $scope.btnSend();
 

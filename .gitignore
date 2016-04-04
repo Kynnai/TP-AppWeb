@@ -1,16 +1,8 @@
 node_modules
-
 public
-
 .tmp
-
 .idea
-
-dist
-
 client/bower_components
+dist
 /server/config/local.env.js
-
-npm-debug.log
-coverage
 Enonce/~$Backlog.xlsx
