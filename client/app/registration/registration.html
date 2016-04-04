@@ -1,4 +1,4 @@
-<div ng-controller="TP1RegistrationCtrl">
+<div ng-controller="TPRegistrationCtrl">
 
   <header class="hero-unit" id="banner" ng-show="hideSuccess">
     <div class="container">
@@ -20,10 +20,14 @@
 
     <form novalidate class="simple-form" name="registrationForm" ng-show="hideSuccess">
       <div class="row text-center">
-        <h3 class="{{registrationMessage.color}}" id="registrationMessage">
-          <option ng-repeat="error in messageServeur">
-            {{ error.message }}
-          </option></h3>
+        <div class="col-md-8 col-md-offset-2">
+          <h3 class="{{registrationMessage.color}}" id="registrationMessage">
+            <option ng-repeat="error in messageServeur">
+              {{ error.message }}
+            </option>
+          </h3>
+        </div>
+        <div class="col-md-2"></div>
       </div>
 
       <br>

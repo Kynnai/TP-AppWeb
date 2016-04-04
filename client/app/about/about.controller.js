@@ -1,6 +1,6 @@
 'use strict';
-angular.module('tp1App')
-  .controller('TP1AboutCtrl', function ($scope, $http) {
+angular.module('tpApp')
+  .controller('TPAboutCtrl', function ($scope, $http) {
 
       $scope.hideSuccess = true;
 
@@ -30,13 +30,13 @@ angular.module('tp1App')
                             name: $scope.user.name}
           })
               .then(
-                  function successCallback() {
-                          $scope.sendMessage.body = "Nous avons bien reçu votre message!";
-                          $scope.sendMessage.color = "alert-success";
+                  function successCallback(response) {
+                    $scope.aboutMessage.body = "Nous avons bien reçu votre message!";
+                    $scope.aboutMessage.color = "alert-success";
                   },
-                  function errorCallback(){
-                      $scope.sendMessage.body = 'Erreur serveur!';
-                      $scope.sendMessage.color = "alert-warning";
+                  function errorCallback(response){
+                    $scope.aboutMessage.body = 'Erreur serveur!';
+                    $scope.aboutMessage.color = "alert-warning";
                   }
               )
       };

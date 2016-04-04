@@ -1,6 +1,6 @@
 'use strict';
-angular.module('tp1App')
-  .controller('TP1MainCtrl', function ($scope, $http) {
+angular.module('tpApp')
+  .controller('TPMainCtrl', function ($scope, $http) {
 
     $scope.movies = {};
     $scope.errorMessage ='';

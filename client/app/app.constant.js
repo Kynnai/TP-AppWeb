@@ -1,7 +1,7 @@
 (function(angular, undefined) {
 'use strict';
 
-angular.module('tp1App.constants', [])
+angular.module('tpApp.constants', [])
 
 .constant('appConfig', {userRoles:['guest','user','admin']})
 
