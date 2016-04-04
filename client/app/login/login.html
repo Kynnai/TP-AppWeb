@@ -16,7 +16,6 @@
       </h1>
     </div>
   </header>
-<p ng-></p>
   <br><br><br><br>
 
   <form novalidate class="simple-form" name="loginForm" ng-show="hideSuccess">
@@ -72,7 +71,7 @@
         <button type="reset" class="btn btn-danger btn-block" ng-click="btnReset()">Effacer</button>
       </div>
       <div class="col-md-1">
-        <button type="button" class="btn btn-success btn-block" ng-click="btnSubmit()" ng-disabled="loginForm.$invalid || loginForm.$pristine" ng-click="btnSubmit()">Connexion</button></div>
+        <button type="button" class="btn btn-success btn-block" id="btnConnect" ng-disabled="loginForm.$invalid || loginForm.$pristine" ng-click="btnConnect()">Connexion</button></div>
       <div class="col-md-3"></div>
     </div>
 
