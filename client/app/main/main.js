@@ -1,12 +1,12 @@
 'use strict';
 
-angular.module('tp1App')
+angular.module('tpApp')
   .config(function($stateProvider) {
     $stateProvider
       .state('main', {
         url: '/',
         templateUrl: 'app/main/main.html',
-        controller: 'TP1MainCtrl',
+        controller: 'TPMainCtrl',
         controllerAs: 'main'
       });
   });
