@@ -6,22 +6,22 @@
     </div>
   </header>
 
-  <header class="{{loginMessage.color}}" id="successBanner" ng-hide="hideSuccess">
+  <header class="{{loginMessageBoxColor}}" id="successBanner" ng-hide="hideSuccess">
     <div class="container">
       <h1 class="text-center">
         <option ng-repeat="msg in messageServeur">
           {{ msg.message }}
         </option></h3>
+        {{$rootScope.username}}
       </h1>
     </div>
   </header>
-
   <br><br><br><br>
 
   <form novalidate class="simple-form" name="loginForm" ng-show="hideSuccess">
     <div class="row text-center">
       <div class="col-md-8 col-md-offset-2">
-        <h3 class="{{loginMessage.color}}" id="registrationMessage">
+        <h3 class="{{loginMessageBoxColor}}" id="registrationMessage">
           <option ng-repeat="error in messageServeur">
             {{ error.message }}
           </option>
@@ -71,7 +71,7 @@
         <button type="reset" class="btn btn-danger btn-block" ng-click="btnReset()">Effacer</button>
       </div>
       <div class="col-md-1">
-        <button type="button" class="btn btn-success btn-block" ng-click="btnSubmit()" ng-disabled="loginForm.$invalid || loginForm.$pristine" ng-click="btnSubmit()">Connexion</button></div>
+        <button type="button" class="btn btn-success btn-block" id="btnConnect" ng-disabled="loginForm.$invalid || loginForm.$pristine" ng-click="btnConnect()">Connexion</button></div>
       <div class="col-md-3"></div>
     </div>
 
