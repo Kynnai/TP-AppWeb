@@ -61,6 +61,24 @@ describe('About View', function() {
     expect(element(by.id('btnErase')).isPresent());
   });
 
+  it("Lors d'un contact réussis la bannière apparait", function() {
+    element(by.model('user.name')).sendKeys('Etienne');
+    element(by.model('user.reason')).select(1);
+    element(by.model('user.email')).sendKeys('Eti@test2.com');
+    element(by.model('user.message')).sendKeys('Bonjour');
+    element(by.id('btnSend')).click();
+    expect(element(by.id('successBanner')).isPresent());
+  });
+
+  it("Lors d'un contact réussis le message apparait dans la bannière de succès", function() {
+    element(by.model('user.name')).sendKeys('Etienne');
+    element(by.model('user.reason')).select(1);
+    element(by.model('user.email')).sendKeys('Eti@test2.com');
+    element(by.model('user.message')).sendKeys('Bonjour');
+    element(by.id('btnSend')).click();
+    expect(element(by.id('successBanner')).getText()).toBe('Nous avons bien reçu votre message!');
+  });
+
   /*it("Regarder", function() {
       expect(element.all(by.repeater('reason in myReason')).get(2)).toBe("Bug trouvé");
     });*/
