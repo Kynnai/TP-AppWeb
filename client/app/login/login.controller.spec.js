@@ -4,18 +4,21 @@ describe('Controller: TPLoginCtrl', function () {
 
   // load the controller's module
   beforeEach(module('tpApp'));
-
-  var TPLoginCtrl, scope;
-
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    TPLoginCtrl = $controller('TPLoginCtrl', {
-      $scope: scope
-    });
+  var $controller;
+  beforeEach(inject(function (_$controller_) {
+    // The injector unwraps the underscores (_) from around the parameter names when matching
+    $controller = _$controller_;
   }));
 
-  it('should ...', function () {
-    expect(1).toEqual(1);
+  it('Retourne «Vrai» dans toutes les situations', function () {
+    expect(true).toEqual(true);
   });
+
+  /*it('', function () {
+    var $scope = {};
+    $controller('TPLoginCtrl', { $scope: $scope });
+    $scope.user.name = "";
+    $scope.btnSubmit();
+    expect($scope.alert).toEqual("alert alert-danger");
+  });*/
 });
