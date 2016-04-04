@@ -1,0 +1,18 @@
+{ 
+  "posts": [ 
+    { 
+      "title": "Title 1", 
+      "body": "New body 1", 
+      "userId": 1, 
+      "id": 1, 
+      "archived": true 
+    }, 
+   { 
+      "title": "Title 2 ", 
+      "body": "New body 2", 
+      "userId": 2, 
+      "id": 2 
+    } 
+  ], 
+  "comments": [], 
+}

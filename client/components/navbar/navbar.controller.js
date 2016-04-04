@@ -1,82 +1,31 @@
 'use strict';
 
-//class NavbarController {
-angular.module('tpApp')
-  .controller('NavbarController', function ($scope, $http, $rootScope, $location) {
+class NavbarController {
   //start-non-standard
-    var jwt = localStorage.getItem('JWT');
-    var user = localStorage.getItem('USER');
+  menu = [{
+    'title': 'Accueil',
+    'state': 'main'
+  },
+  {
+    'title': 'Recherche',
+    'state': 'search'
+  },
+  {
+    'title': 'Inscription',
+    'state': 'registration'
+  },
+  {
+    'title': 'Contact',
+    'state': 'about'
+  },
+  ];
 
-    $scope.username = $rootScope.username;
-
-    if(jwt === null)
-    {
-      $scope.menu = [{
-        'title': 'Accueil',
-        'state': 'main'
-      },
-        {
-          'title': 'Recherche',
-          'state': 'search'
-        },
-        {
-          'title': 'Contact',
-          'state': 'about'
-        },
-        {
-          'title': 'Inscription',
-          'state': 'registration'
-        },
-        {
-          'title': 'Connexion',
-          'state': 'login'
-        }
-      ];
-    }
-    else{
-      $scope.menu = [{
-        'title': 'Accueil',
-        'state': 'main'
-      },
-        {
-          'title': 'Recherche',
-          'state': 'search'
-        },
-        {
-          'title': 'Liste de Film',
-          'state': 'playList'
-        },
-        {
-          'title': 'Contact',
-          'state': 'about'
-        },
-        {
-          'title': user,
-          'state': null
-        },
-        {
-          'title': 'Déconnexion',
-          'state': null
-        }
-      ];
-    }
-
-    function logout(){
-      localStorage.removeItem('JWT');
-      location.href="/main"
-    };
-
-   /* $scope.logout = function(){
-      $rootScope.$broadcast('user:logout', {});
-      localstorage.removeItem('JWT');
-    }*/
-
-  $scope.isCollapsed = true;
+  isCollapsed = true;
   //end-non-standard
 
-  /*constructor() {
-    }*/
-});
+  constructor() {
+    }
+}
 
-//angular.module('tpApp')
-  //.controller('NavbarController', NavbarController);
+angular.module('tp1App')
+  .controller('NavbarController', NavbarController);

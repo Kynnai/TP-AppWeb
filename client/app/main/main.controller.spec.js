@@ -1,7 +1,7 @@
 'use strict';
-describe('TPCtrl', function () {
+describe('TP1Ctrl', function () {
   // load the controller's module
-  beforeEach(module('tpApp'));
+  beforeEach(module('tp1App'));
   var $controller;
   beforeEach(inject(function (_$controller_) {
     // The injector unwraps the underscores (_) from around the parameter names when matching

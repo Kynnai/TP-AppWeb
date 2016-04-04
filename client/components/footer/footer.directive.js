@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('tpApp')
+angular.module('tp1App')
   .directive('footer', function() {
     return {
       templateUrl: 'components/footer/footer.html',
