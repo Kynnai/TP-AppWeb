@@ -1,3 +1,36 @@
-<div class="col-md-12">
-This is the playList view.
+<div ng-controller="TPMainCtrl">
+    <header class="hero-unit" id="banner">
+        <div class="container">
+            <h1>Liste de vos favoris !</h1>
+        </div>
+    </header>
+
+    <br><br><br><br>
+
+    <div ng-show="messageServeur" class="alert alert-warning">
+        {{messageServeur}}
+    </div>
+
+    <div ng-init="getAllFav()"><
+        <div ng-repeat="fav in favorites">
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-3">
+                        {{movie.Title}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <img src="{{movie.Poster}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button class="btn btn-success btn-block" type="button" id="watchedButton" ng-click="favWatched()">Vue</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-danger btn-block" type="button" id="deleteButton" ng-click="favDelete()">Supprimer</button>
+                    </div>
+                </div>
+        </div>
+    </div>
 </div>
