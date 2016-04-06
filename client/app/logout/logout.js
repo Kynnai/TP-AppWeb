@@ -1,11 +1,11 @@
 'use strict';
 
-angular.module('fs3App')
+angular.module('tpApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('logout', {
         url: '/logout',
         templateUrl: 'app/logout/logout.html',
-        controller: 'LogoutCtrl'
+        controller: 'TPLogoutCtrl'
       });
   });

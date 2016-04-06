@@ -1,6 +1,8 @@
 'use strict';
 
-angular.module('fs3App')
-  .controller('LogoutCtrl', function ($scope) {
-    $scope.message = 'Hello';
+angular.module('tpApp')
+  .controller('TPLogoutCtrl', function ($scope) {
+    localStorage.removeItem('JWT');
+    localStorage.removeItem('USER');
+    location.href="/main"
   });
