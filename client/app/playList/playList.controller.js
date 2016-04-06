@@ -23,7 +23,7 @@ angular.module('tpApp')
                   $scope.messageServeur = 'Erreur Serveur';
               }
       }
-
+      
       $scope.favDelete = function(){
           Favoris.delete({})
       }
