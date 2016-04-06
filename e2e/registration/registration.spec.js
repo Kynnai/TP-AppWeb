@@ -4,60 +4,63 @@ var config = browser.params;
 
 describe('Registration View', function() {
   var page;
+  var no = 0;
+  no += 1;
 
   beforeEach(function() {
     browser.get("/registration");
   });
 
-  it('Regarder si le titre contient Inscription', function() {
+  it('1.  Regarder si le titre contient Inscription', function() {
     expect(element(by.id('banner')).getText()).toBe('Inscription');
   });
 
-  it("Regarder si la page contient le champ pour entrer le Prénom d'utilisateur", function() {
-    expect(element(by.id('inputUserFirstName')).isPresent());
+  it("2.  Regarder si la page contient le champ pour entrer le Prénom d'utilisateur", function() {
+    expect(element(by.id('inputUserFirstName')).isDisplayed()).toBeTruthy();
   });
 
-  it("Regarder si la page contient le model du champ pour entrer le Prénom d'utilisateur", function() {
-    expect(element(by.model('user.firstName')).isPresent());
+  it("3.  Regarder si la page contient le model du champ pour entrer le Prénom d'utilisateur", function() {
+    expect(element(by.model('user.firstName')).isDisplayed()).toBeTruthy();
   });
 
-  it("Regarder si la page contient le champ pour entrer le Nom d'utilisateur", function() {
-    expect(element(by.id('inputUserName')).isPresent());
+  it("4.  Regarder si la page contient le champ pour entrer le Nom d'utilisateur", function() {
+    expect(element(by.id('inputUserLastName')).isDisplayed()).toBeTruthy();
   });
 
-  it("Regarder si la page contient le model du champ pour entrer le Nom d'utilisateur", function() {
-    expect(element(by.model('user.name')).isPresent());
+  it("5.  Regarder si la page contient le model du champ pour entrer le Nom d'utilisateur", function() {
+    expect(element(by.model('user.lastName')).isDisplayed()).toBeTruthy();
   });
 
-  it("Regarder si la page contient le sélecteur pour la Raison", function() {
-    expect(element(by.id('inputaboutreason')).isPresent());
+  it("6.  Regarder si la page contient le champ pour entrer l'Email", function() {
+    expect(element(by.id('inputUserEmail')).isDisplayed()).toBeTruthy();
   });
 
-  it("Regarder si la page contient le model du sélecteur pour la Raison", function() {
-    expect(element(by.model('user.reason')).isPresent());
+  it("7.  Regarder si la page contient le model du champ pour entrer l'Email", function() {
+    expect(element(by.model('user.email')).isDisplayed()).toBeTruthy();
   });
 
-  it("Regarder si la page contient le champ pour entrer l'Email", function() {
-    expect(element(by.id('inputEmail')).isPresent());
+  it("8.  Regarder si la page contient le champ pour entrer le mot de passe", function() {
+    expect(element(by.id('inputUserPassword')).isDisplayed()).toBeTruthy();
   });
 
-  it("Regarder si la page contient le model du champ pour entrer l'Email", function() {
-    expect(element(by.model('user.email')).isPresent());
+  it("9.  Regarder si la page contient le model du mot de passe", function() {
+    expect(element(by.model('user.password')).isDisplayed()).toBeTruthy();
   });
 
-  it("Regarder si la page contient le champ pour entrer le message", function() {
-    expect(element(by.id('inputMessage')).isPresent());
+  it("10. Regarder si la page contient le champ pour entrer la confirmation du mot de passe", function() {
+    expect(element(by.id('inputUserConfPassword')).isDisplayed()).toBeTruthy();
   });
 
-  it("Regarder si la page contient le model du champ pour entrer le message", function() {
-    expect(element(by.model('user.message')).isPresent());
+  it("11. Regarder si la page contient le model de la confirmation du mot de passe", function() {
+    expect(element(by.model('user.confPassword')).isDisplayed()).toBeTruthy();
   });
 
-  it("Regarder si la page contient le bouton Envoyer", function() {
-    expect(element(by.id('btnSend')).isPresent());
+  it("12. Regarder si la page contient le bouton Soumettre", function() {
+    expect(element(by.id('btnSubmit')).isDisplayed()).toBeTruthy();
   });
 
-  it("Regarder si la page contient le bouton Effacer", function() {
-    expect(element(by.id('btnErase')).isPresent());
+  it("13. Regarder si la page contient le bouton Effacer", function() {
+    expect(element(by.id('btnErase')).isDisplayed()).toBeTruthy();
   });
+
 });

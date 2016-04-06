@@ -46,11 +46,11 @@ describe('Login View', function() {
   });
 
   it("10. Regarder si la page contient le champ pour entrer le Nom d'utilisateur(Courriel)", function() {
-    expect(element(by.id('inputUserEmail')).isPresent()).toBe(true);
+    expect(element(by.id('inputUserEmail')).isDisplayed()).toBeTruthy();
   });
 
   it("11. Regarder si la page contient le model du champ pour entrer le Nom d'utilisateur(Courriel)", function() {
-    expect(element(by.model('user.email')).isPresent()).toBe(true);
+    expect(element(by.model('user.email')).isDisplayed()).toBeTruthy();
   });
 
   it("12. Connexion Réussis l'email apparait dans la nav-bar", function() {
@@ -117,11 +117,11 @@ describe('Login View', function() {
   });
 
   it("22. Regarder si la page contient le champ pour entrer le mot de passe", function() {
-    expect(element(by.id('inputUserPassword')).isPresent()).toBe(true);
+    expect(element(by.id('inputUserPassword')).isDisplayed()).toBeTruthy();
   });
 
   it("23. Regarder si la page contient le model du champ pour entrer le mot de passe", function() {
-    expect(element(by.model('user.password')).isPresent()).toBe(true);
+    expect(element(by.model('user.password')).isDisplayed()).toBeTruthy();
   });
 
   it("24. Regarder si le message d'erreur pour le Courriel n'est pas visible", function() {
@@ -129,9 +129,9 @@ describe('Login View', function() {
   });
 
   it("25. Regarder si le message pour le Courriel fonctionne lorsqu'on efface le courriel", function() {
-    element(by.model('user.email')).sendKeys('Eti@tes.com');
-    element(by.model('user.email')).sendKeys('');
-    expect(element(by.id('errorMessageEmail')).isPresent()).toBe(true);
+    element(by.model('user.email')).sendKeys('Eti@test.com');
+    element(by.model('user.email')).clear();
+    expect(element(by.id('errorMessageEmail')).isDisplayed()).toBeTruthy();
   });
 
   it("26. Regarder si le message d'erreur pour le mot de passe n'est pas visible", function() {
@@ -140,12 +140,12 @@ describe('Login View', function() {
 
   it("27. Regarder si le message pour le Courriel fonctionne lorsqu'on efface le mot de passe", function() {
     element(by.model('user.password')).sendKeys('asdf');
-    element(by.model('user.password')).sendKeys('');
-    expect(element(by.id('errorMessagePassword')).isPresent()).toBe(true);
+    element(by.model('user.password')).clear();
+    expect(element(by.id('errorMessagePassword')).isDisplayed()).toBeTruthy();
   });
 
   it("28. Regarder si la page contient le bouton Envoyer", function() {
-    expect(element(by.id('btnConnect')).isPresent()).toBe(true);
+    expect(element(by.id('btnConnect')).isDisplayed()).toBeTruthy();
   });
 
   it("29. Regarder si le bouton Connecté est désactivé", function() {
@@ -153,7 +153,7 @@ describe('Login View', function() {
   });
 
   it("30. Regarder si la page contient le bouton Effacer", function() {
-    expect(element(by.id('btnErase')).isPresent()).toBe(true);
+    expect(element(by.id('btnErase')).isDisplayed()).toBeTruthy();
   });
 
   it("31. Regarder si le bouton Effacer fonctionne", function() {

@@ -73,7 +73,7 @@
           </div>
           <div class="col-md-4">
             <p ng-show="registrationForm.inputUserEmail.$error.required && registrationForm.inputUserEmail.$dirty" class="help-block">
-              Vous devez entrer une adresse courriel valide
+              Veuillez entrer une adresse courriel valide!
             </p>
             <input type="email" class="form-control" id="inputUserEmail" name="inputUserEmail" placeholder="Votre courriel" ng-model="user.email" ng-required="true">
           </div>
@@ -90,7 +90,7 @@
           </div>
           <div class="col-md-4">
             <p ng-show="registrationForm.inputUserPassword.$error.required && registrationForm.inputUserPassword.$dirty" class="help-block">
-              Mot de passe vide
+              Veuillez entrer un mot de passe!
             </p>
             <input type="password" class="form-control" id="inputUserPassword" name="inputUserPassword" placeholder="Votre mot de passe" ng-model="user.password" ng-required="true">
           </div>
@@ -107,10 +107,10 @@
           </div>
           <div class="col-md-4">
             <p ng-show="registrationForm.inputUserConfPassword.$error.required && registrationForm.inputUserConfPassword.$dirty" class="help-block">
-              Confirmation de mot de passe vide
+              Veuillez confirmer votre mot de passe!
             </p>
             <p ng-show="user.password != user.confPassword" class="help-block">
-              La confirmation n'est pas identique au mot de passe
+              La confirmation n'est pas identique au mot de passe!
             </p>
             <input type="password" class="form-control" id="inputUserConfPassword" name="inputUserConfPassword" placeholder="Votre confirmation du mot de passe" ng-model="user.confPassword" ng-required="true">
           </div>
@@ -122,10 +122,10 @@
 
       <div class="row">
         <div class="col-md-1 col-md-offset-7">
-          <button type="reset" class="btn btn-danger btn-block" ng-click="btnReset()">Effacer</button>
+          <button type="reset" id="btnErase" class="btn btn-danger btn-block" ng-click="btnReset()">Effacer</button>
         </div>
         <div class="col-md-1">
-          <button type="button" class="btn btn-primary btn-block" ng-click="btnSubmit()" ng-disabled="registrationForm.$invalid || registrationForm.$pristine || user.password != user.confPassword" ng-click="btnSubmit()">Soumettre</button></div>
+          <button type="button" id="btnSubmit" class="btn btn-primary btn-block" ng-click="btnSubmit()" ng-disabled="registrationForm.$invalid || registrationForm.$pristine || user.password != user.confPassword" ng-click="btnSubmit()">Soumettre</button></div>
         <div class="col-md-3"></div>
       </div>
 
