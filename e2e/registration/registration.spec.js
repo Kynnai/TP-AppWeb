@@ -13,6 +13,14 @@ describe('Registration View', function() {
     expect(element(by.id('banner')).getText()).toBe('Inscription');
   });
 
+  it("Regarder si la page contient le champ pour entrer le Prénom d'utilisateur", function() {
+    expect(element(by.id('inputUserFirstName')).isPresent());
+  });
+
+  it("Regarder si la page contient le model du champ pour entrer le Prénom d'utilisateur", function() {
+    expect(element(by.model('user.firstName')).isPresent());
+  });
+
   it("Regarder si la page contient le champ pour entrer le Nom d'utilisateur", function() {
     expect(element(by.id('inputUserName')).isPresent());
   });

@@ -9,154 +9,154 @@ describe('Login View', function() {
     browser.get("/login");
   });
 
-  it("Regarder si la nav-bar contient l'onglet Accueil", function() {
+  it("1.  Regarder si la nav-bar contient l'onglet Accueil", function() {
     expect(element(by.id('main')).getText()).toBe('Accueil');
   });
 
-  it("Regarder si la nav-bar contient l'onglet Recherche", function() {
+  it("2.  Regarder si la nav-bar contient l'onglet Recherche", function() {
     expect(element(by.id('search')).getText()).toBe('Recherche');
   });
 
-  it("Regarder si la nav-bar contient l'onglet Contact", function() {
+  it("3.  Regarder si la nav-bar contient l'onglet Contact", function() {
     expect(element(by.id('about')).getText()).toBe('Contact');
   });
 
-  it("Regarder si la nav-bar contient l'onglet Inscription", function() {
+  it("4.  Regarder si la nav-bar contient l'onglet Inscription", function() {
     expect(element(by.id('registration')).getText()).toBe('Inscription');
   });
 
-  it("Regarder si la nav-bar contient l'onglet Connexion", function() {
+  it("5.  Regarder si la nav-bar contient l'onglet Connexion", function() {
     expect(element(by.id('login')).getText()).toBe('Connexion');
   });
 
-  it("Regarder si la nav-bar ne contient pas l'onglet Liste de film(Avant la connexion)", function() {
-    expect(false, element(by.id('playList')));
+  it("6.  Regarder si la nav-bar ne contient pas l'onglet Liste de film(Avant la connexion)", function() {
+    expect(element(by.id('playList')).isPresent()).toBe(false);
   });
 
-  it("Regarder si la nav-bar ne contient pas l'onglet Déconnexion(Avant la connexion)", function() {
-    expect(false, element(by.id('logout')));
+  it("7.  Regarder si la nav-bar ne contient pas l'onglet Déconnexion(Avant la connexion)", function() {
+    expect(element(by.id('logout')).isPresent()).toBe(false);
   });
 
-  it("Regarder si la nav-bar ne contient pas le nom d'utilisateur(Avant la connexion)", function() {
-    expect(false, element(by.id('username')));
+  it("8.  Regarder si la nav-bar ne contient pas le nom d'utilisateur(Avant la connexion)", function() {
+    expect(element(by.id('username')).isPresent()).toBe(false);
   });
 
-  it('Regarder si le titre contient Connexion', function() {
+  it('9.  Regarder si le titre contient Connexion', function() {
     expect(element(by.id('banner')).getText()).toBe('Connexion');
   });
 
-  it("Regarder si la page contient le champ pour entrer le Nom d'utilisateur(Courriel)", function() {
-    expect(element(by.id('inputUserEmail')).isPresent());
+  it("10. Regarder si la page contient le champ pour entrer le Nom d'utilisateur(Courriel)", function() {
+    expect(element(by.id('inputUserEmail')).isPresent()).toBe(true);
   });
 
-  it("Regarder si la page contient le model du champ pour entrer le Nom d'utilisateur(Courriel)", function() {
-    expect(element(by.model('user.email')).isPresent());
+  it("11. Regarder si la page contient le model du champ pour entrer le Nom d'utilisateur(Courriel)", function() {
+    expect(element(by.model('user.email')).isPresent()).toBe(true);
   });
 
-  it("Connexion Réussis l'email apparait dans la nav-bar", function() {
+  it("12. Connexion Réussis l'email apparait dans la nav-bar", function() {
     element(by.model('user.email')).sendKeys('Eti@test2.com');
     element(by.model('user.password')).sendKeys('asd');
     element(by.id('btnConnect')).click();
     expect(element(by.id('username')).getText()).toBe('Eti@test2.com');
   });
 
-  it("Connexion Réussis l'onglet l'Liste de film apparait dans la nav-bar", function() {
+  it("13. Connexion Réussis l'onglet l'Liste de film apparait dans la nav-bar", function() {
     element(by.model('user.email')).sendKeys('Eti@test2.com');
     element(by.model('user.password')).sendKeys('asd');
     element(by.id('btnConnect')).click();
     expect(element(by.id('playList')).getText()).toBe('Liste de Film');
   });
 
-  it("Connexion Réussis l'onglet Déconnexion apparait dans la nav-bar", function() {
+  it("14. Connexion Réussis l'onglet Déconnexion apparait dans la nav-bar", function() {
     element(by.model('user.email')).sendKeys('Eti@test2.com');
     element(by.model('user.password')).sendKeys('asd');
     element(by.id('btnConnect')).click();
     expect(element(by.id('logout')).getText()).toBe('Déconnexion');
   });
 
-  it("Connexion Réussis l'onglet Connexion disparait de la nav-bar", function() {
+  it("16. Connexion Réussis l'onglet Connexion disparait de la nav-bar", function() {
     element(by.model('user.email')).sendKeys('Eti@test2.com');
     element(by.model('user.password')).sendKeys('asd');
     element(by.id('btnConnect')).click();
-    expect(false, element(by.id('login')));
+    expect(element(by.id('login')).isPresent()).toBe(false);
   });
 
-  it("Connexion Réussis l'onglet Inscription disparait de la nav-bar", function() {
+  it("17. Connexion Réussis l'onglet Inscription disparait de la nav-bar", function() {
     element(by.model('user.email')).sendKeys('Eti@test2.com');
     element(by.model('user.password')).sendKeys('asd');
     element(by.id('btnConnect')).click();
-    expect(false, element(by.id('registration')));
+    expect(element(by.id('registration')).isPresent()).toBe(false);
   });
 
-  it("Connexion Réussis redirection vers la page d'accueil", function() {
+  it("18. Connexion Réussis redirection vers la page d'accueil", function() {
     element(by.model('user.email')).sendKeys('Eti@test2.com');
     element(by.model('user.password')).sendKeys('asd');
     element(by.id('btnConnect')).click();
     expect(element(by.id('banner')).getText()).toBe("Six films de l'année 2016 !");
   });
 
-  it("Connexion Échouer, le mots de passe n'est pas bon", function() {
+  it("19. Connexion Échouer, le mots de passe n'est pas bon", function() {
     element(by.model('user.email')).sendKeys('Eti@test2.com');
     element(by.model('user.password')).sendKeys('asdf');
     element(by.id('btnConnect')).click();
     expect(element(by.id('registrationMessage')).getText()).toBe('401 Bad credentials');
   });
 
-  it("Connexion Échouer, le courriel n'est pas bon", function() {
+  it("20. Connexion Échouer, le courriel n'est pas bon", function() {
     element(by.model('user.email')).sendKeys('Eti@tes.com');
     element(by.model('user.password')).sendKeys('asd');
     element(by.id('btnConnect')).click();
     expect(element(by.id('registrationMessage')).getText()).toBe('401 Bad credentials');
   });
 
-  it("Connexion Échouer, tout les données son érroner", function() {
+  it("21. Connexion Échouer, tout les données son érroner", function() {
     element(by.model('user.email')).sendKeys('Eti@tes.com');
     element(by.model('user.password')).sendKeys('asdf');
     element(by.id('btnConnect')).click();
     expect(element(by.id('registrationMessage')).getText()).toBe('401 Bad credentials');
   });
 
-  it("Regarder si la page contient le champ pour entrer le mot de passe", function() {
-    expect(element(by.id('inputUserPassword')).isPresent());
+  it("22. Regarder si la page contient le champ pour entrer le mot de passe", function() {
+    expect(element(by.id('inputUserPassword')).isPresent()).toBe(true);
   });
 
-  it("Regarder si la page contient le model du champ pour entrer le mot de passe", function() {
-    expect(element(by.model('user.password')).isPresent());
+  it("23. Regarder si la page contient le model du champ pour entrer le mot de passe", function() {
+    expect(element(by.model('user.password')).isPresent()).toBe(true);
   });
 
-  it("Regarder si le message d'erreur pour le Courriel n'est pas présent", function() {
-    expect(false, element(by.id('errorMessageEmail')).isPresent());
+  it("24. Regarder si le message d'erreur pour le Courriel n'est pas visible", function() {
+    expect(element(by.id('errorMessageEmail')).isDisplayed()).toBeFalsy();
   });
 
-  it("Regarder si le message pour le Courriel fonctionne lorsqu'on efface le courriel", function() {
+  it("25. Regarder si le message pour le Courriel fonctionne lorsqu'on efface le courriel", function() {
     element(by.model('user.email')).sendKeys('Eti@tes.com');
     element(by.model('user.email')).sendKeys('');
-    expect(element(by.id('errorMessageEmail')).isPresent());
+    expect(element(by.id('errorMessageEmail')).isPresent()).toBe(true);
   });
 
-  it("Regarder si le message d'erreur pour le mot de passe n'est pas présent", function() {
-    expect(false, element(by.id('errorMessagePassword')).isPresent());
+  it("26. Regarder si le message d'erreur pour le mot de passe n'est pas visible", function() {
+    expect(element(by.id('errorMessagePassword')).isDisplayed()).toBeFalsy();
   });
 
-  it("Regarder si le message pour le Courriel fonctionne lorsqu'on efface le mot de passe", function() {
+  it("27. Regarder si le message pour le Courriel fonctionne lorsqu'on efface le mot de passe", function() {
     element(by.model('user.password')).sendKeys('asdf');
     element(by.model('user.password')).sendKeys('');
-    expect(element(by.id('errorMessagePassword')).isPresent());
+    expect(element(by.id('errorMessagePassword')).isPresent()).toBe(true);
   });
 
-  it("Regarder si la page contient le bouton Envoyer", function() {
-    expect(element(by.id('btnConnect')).isPresent());
+  it("28. Regarder si la page contient le bouton Envoyer", function() {
+    expect(element(by.id('btnConnect')).isPresent()).toBe(true);
   });
 
-  it("Regarder si le bouton Connecté est désactivé", function() {
+  it("29. Regarder si le bouton Connecté est désactivé", function() {
     expect(element(by.id('btnConnect')).isDisabled);
   });
 
-  it("Regarder si la page contient le bouton Effacer", function() {
-    expect(element(by.id('btnErase')).isPresent());
+  it("30. Regarder si la page contient le bouton Effacer", function() {
+    expect(element(by.id('btnErase')).isPresent()).toBe(true);
   });
 
-  it("Regarder si le bouton Effacer fonctionne", function() {
+  it("31. Regarder si le bouton Effacer fonctionne", function() {
     element(by.model('user.email')).sendKeys('Eti@tes.com');
     element(by.model('user.password')).sendKeys('asdf');
     element(by.id('btnErase')).click();

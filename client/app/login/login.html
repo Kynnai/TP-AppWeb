@@ -39,7 +39,7 @@
         </div>
         <div class="col-md-4">
           <p id="errorMessageEmail" ng-show="loginForm.inputUserEmail.$error.required && loginForm.inputUserEmail.$dirty" class="help-block">
-            Vous devez entrer une adresse courriel valide
+            Veuiller entrer une adresse courriel valide!
           </p>
           <input type="email" class="form-control" id="inputUserEmail" name="inputUserEmail" placeholder="Votre courriel" ng-model="user.email" ng-required="true">
         </div>
@@ -56,7 +56,7 @@
         </div>
         <div class="col-md-4">
           <p id="errorMessagePassword" ng-show="loginForm.inputUserPassword.$error.required && loginForm.inputUserPassword.$dirty" class="help-block">
-            Mot de passe vide
+            Veuillez entrer un mot de passe vide!
           </p>
           <input type="password" class="form-control" id="inputUserPassword" name="inputUserPassword" placeholder="Votre mot de passe" ng-model="user.password" ng-required="true">
         </div>
