@@ -9,7 +9,7 @@
   <header class="{{registrationMessage.color}}" id="successBanner" ng-hide="hideSuccess">
     <div class="container">
       <h1 class="text-center">
-        <p ng-repeat="msg in messageServeur">
+        <p id="successMessage" ng-repeat="msg in messageServeur">
         {{ msg.message }}
       </p></h3>
       </h1>
@@ -38,8 +38,8 @@
             <label for="inputUserFirstName">Prénom : </label>
           </div>
           <div class="col-md-4">
-            <p ng-show="registrationForm.inputUserFirstName.$error.required && registrationForm.inputUserFirstName.$dirty" class="help-block">
-              Veuillez indiquer votre prénom
+            <p id="errorMessageFirstName" ng-show="registrationForm.inputUserFirstName.$error.required && registrationForm.inputUserFirstName.$dirty" class="help-block">
+              Veuillez indiquer votre prénom!
             </p>
             <input type="text" class="form-control" id="inputUserFirstName" name="inputUserFirstName" placeholder="Votre prénom" ng-model="user.firstName" ng-required="true">
           </div>
@@ -55,8 +55,8 @@
             <label for="inputUserLastName">Nom : </label>
           </div>
           <div class="col-md-4">
-            <p ng-show="registrationForm.inputUserLastName.$error.required && registrationForm.inputUserLastName.$dirty" class="help-block">
-              Veuillez indiquer votre nom
+            <p id="errorMessageLastName" ng-show="registrationForm.inputUserLastName.$error.required && registrationForm.inputUserLastName.$dirty" class="help-block">
+              Veuillez indiquer votre nom!
             </p>
             <input type="text" class="form-control" id="inputUserLastName" name="inputUserLastName" placeholder="Votre nom" ng-model="user.lastName" ng-required="true">
           </div>
@@ -72,7 +72,7 @@
             <label for="inputUserEmail">Courriel : </label>
           </div>
           <div class="col-md-4">
-            <p ng-show="registrationForm.inputUserEmail.$error.required && registrationForm.inputUserEmail.$dirty" class="help-block">
+            <p id="errorMessageEmail" ng-show="registrationForm.inputUserEmail.$error.required && registrationForm.inputUserEmail.$dirty" class="help-block">
               Veuillez entrer une adresse courriel valide!
             </p>
             <input type="email" class="form-control" id="inputUserEmail" name="inputUserEmail" placeholder="Votre courriel" ng-model="user.email" ng-required="true">
@@ -89,7 +89,7 @@
             <label for="inputUserPassword">Mot de passe : </label>
           </div>
           <div class="col-md-4">
-            <p ng-show="registrationForm.inputUserPassword.$error.required && registrationForm.inputUserPassword.$dirty" class="help-block">
+            <p id="errorMessagePassword" ng-show="registrationForm.inputUserPassword.$error.required && registrationForm.inputUserPassword.$dirty" class="help-block">
               Veuillez entrer un mot de passe!
             </p>
             <input type="password" class="form-control" id="inputUserPassword" name="inputUserPassword" placeholder="Votre mot de passe" ng-model="user.password" ng-required="true">
@@ -106,10 +106,10 @@
             <label for="inputUserConfPassword">Confirmation : </label>
           </div>
           <div class="col-md-4">
-            <p ng-show="registrationForm.inputUserConfPassword.$error.required && registrationForm.inputUserConfPassword.$dirty" class="help-block">
+            <p id="errorMessageConfPasswordDiff" ng-show="registrationForm.inputUserConfPassword.$error.required && registrationForm.inputUserConfPassword.$dirty" class="help-block">
               Veuillez confirmer votre mot de passe!
             </p>
-            <p ng-show="user.password != user.confPassword" class="help-block">
+            <p id="errorMessageConfPassword" ng-show="user.password != user.confPassword" class="help-block">
               La confirmation n'est pas identique au mot de passe!
             </p>
             <input type="password" class="form-control" id="inputUserConfPassword" name="inputUserConfPassword" placeholder="Votre confirmation du mot de passe" ng-model="user.confPassword" ng-required="true">

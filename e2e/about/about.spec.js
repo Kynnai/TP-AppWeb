@@ -4,13 +4,12 @@ var config = browser.params;
 
 describe('About View', function() {
   var page;
-  var today;
   var message;
   var email;
 
   beforeEach(function() {
     browser.get("/about");
-    today = new Date();
+    var today = new Date();
     email = today.getHours()+today.getMinutes()+today.getSeconds()+"@"+today.getDay()+today.getMonth()+today.getYear()+".com";
     message = today.getHours()+"h"+today.getMinutes()+"m"+today.getSeconds()+"s"+"  "+today.getDay()+"/"+today.getMonth()+"/"+today.getYear();
   });
