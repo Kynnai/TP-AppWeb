@@ -156,7 +156,7 @@ describe('Registration View', function() {
     element(by.model('user.password')).sendKeys(password);
     element(by.model('user.confPassword')).sendKeys(password);
     element(by.id('btnSubmit')).click();
-    expect(element(by.repeater('error in messageServeur').row(3)).getText()).toBe('firstname : Your firstname must have at least 3 characters.');
+    expect(element(by.repeater('error in messageServeur').row(4)).getText()).toBe('firstname : Your firstname must have at least 3 characters.');
   });
 
   it("29. Inscription échoué, message serveur retourne une erreur pour le nom", function() {
@@ -166,7 +166,7 @@ describe('Registration View', function() {
     element(by.model('user.password')).sendKeys(password);
     element(by.model('user.confPassword')).sendKeys(password);
     element(by.id('btnSubmit')).click();
-    expect(element(by.repeater('error in messageServeur').row(3)).getText()).toBe('lastname : Your lastname must have at least 3 characters.');
+    expect(element(by.repeater('error in messageServeur').row(4)).getText()).toBe('lastname : Your lastname must have at least 3 characters.');
   });
 
   it("30. Inscription échoué, message serveur retourne une erreur pour le email", function() {
@@ -176,7 +176,7 @@ describe('Registration View', function() {
     element(by.model('user.password')).sendKeys(password);
     element(by.model('user.confPassword')).sendKeys(password);
     element(by.id('btnSubmit')).click();
-    expect(element(by.repeater('error in messageServeur').row(3)).getText()).toBe('email : Cette valeur est déjà utilisée.');
+    expect(element(by.repeater('error in messageServeur').row(4)).getText()).toBe('email : Cette valeur est déjà utilisée.');
   });
 
   it("31. Inscription échoué, message serveur retourne une erreur pour le mot de passe", function() {
@@ -186,6 +186,6 @@ describe('Registration View', function() {
     element(by.model('user.password')).sendKeys("a");
     element(by.model('user.confPassword')).sendKeys("a");
     element(by.id('btnSubmit')).click();
-    expect(element(by.repeater('error in messageServeur').row(3)).getText()).toBe('password : Your password must have at least 3 characters.');
+    expect(element(by.repeater('error in messageServeur').row(4)).getText()).toBe('password : Your password must have at least 3 characters.');
   });
 });
