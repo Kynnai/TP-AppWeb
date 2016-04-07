@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('tpApp')
-  .controller('TPSearchCtrl', function ($scope, $http, Favoris) {
+  .controller('TPSearchCtrl', function ($scope, $http, Favoris, $root) {
 
     $scope.movies = {};
     $scope.query ='';
