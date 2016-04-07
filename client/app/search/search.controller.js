@@ -17,8 +17,6 @@ angular.module('tpApp')
 
     $scope.addToFavorite = function(id){
       var movieId = id.substring(2);
-      //console.log(movieId);
-      //console.log(jwt);
       $http({ method: 'POST',
               url: 'https://crispesh.herokuapp.com/api/favs',
               data: {movie_id: movieId}
