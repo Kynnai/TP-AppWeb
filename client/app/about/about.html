@@ -24,8 +24,8 @@
             <label for="inputUserName">Nom d'utilisateur : </label>
           </div>
           <div class="col-md-4">
-            <p id="errorMessageUserName" ng-show="aboutForm.inputUserName.$error.required && aboutForm.inputUserName.$dirty" class="help-block">
-              Veuillez indiquer votre nom!
+            <p ng-show="aboutForm.inputUserName.$error.required && aboutForm.inputUserName.$dirty" class="help-block">
+              Veuillez indiquer votre nom
             </p>
             <input type="text" class="form-control" id="inputUserName" name="inputUserName" placeholder="Votre nom d'utilisateur" ng-model="user.name" ng-required="true">
           </div>
@@ -42,7 +42,7 @@
           </div>
           <div class="col-md-4">
             <p ng-show="aboutForm.inputAboutReason.$error.required && aboutForm.inputAboutReason.$dirty" class="help-block">
-              Veuillez sélectionner une raison!
+              Vous devez sélectionner une raison
             </p>
             <select class="selectpicker form-control" id="inputAboutReason" name="inputAboutReason" placeholder="Votre Raison" ng-model="user.reason" ng-required="true">
               <option ng-repeat="reason in myReason">
@@ -62,8 +62,8 @@
             <label for="inputUserName">Courriel : </label>
           </div>
           <div class="col-md-4">
-            <p id="errorMessageEmail" ng-show="aboutForm.inputEmail.$error.required && aboutForm.inputEmail.$dirty" class="help-block">
-              Veuiller entrer une adresse courriel valide!
+            <p ng-show="aboutForm.inputEmail.$error.required && aboutForm.inputEmail.$dirty" class="help-block">
+              Vous devez entrer une adresse courriel valide
             </p>
             <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Votre courriel" ng-model="user.email" ng-required="true">
           </div>
@@ -79,8 +79,8 @@
             <label for="inputUserName">Message : </label>
           </div>
           <div class="col-md-4">
-            <p id="errorMessageMessage" ng-show="aboutForm.inputMessage.$error.required && aboutForm.inputMessage.$dirty" class="help-block">
-              Veuillez entrer un message!
+            <p ng-show="aboutForm.inputMessage.$error.required && aboutForm.inputMessage.$dirty" class="help-block">
+              Vous devez entrer un message
             </p>
             <textarea type="text" class="form-control" id="inputMessage" name="inputMessage" placeholder="Votre message" ng-model="user.message" ng-required="true"></textarea>
           </div>
@@ -95,7 +95,7 @@
           <button type="reset" class="btn btn-danger btn-block" id="btnErase">Effacer</button>
         </div>
         <div class="col-md-1">
-          <button type="submit" class="btn btn-success btn-block" id="btnSend" ng-disabled="aboutForm.$invalid || aboutForm.$pristine" ng-click="btnSend()">Envoyer</button>
+          <button type="submit" class="btn btn-success btn-block" ng-disabled="aboutForm.$invalid || aboutForm.$pristine" ng-click="btnSend()">Envoyer</button>
         </div>
         <div class="col-md-3"></div>
       </div>

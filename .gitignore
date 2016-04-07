@@ -7,10 +7,10 @@ public
 .idea
 
 dist
-bower_components
+
 client/bower_components
 /server/config/local.env.js
-/bower_components
+
 npm-debug.log
 coverage
 Enonce/~$Backlog.xlsx
