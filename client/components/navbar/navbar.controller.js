@@ -61,11 +61,9 @@ angular.module('tpApp')
       ];
     }
 
-    function logout(){
-      localStorage.removeItem('JWT');
-      localStorage.removeItem('USER');
-      location.href="/main"
-    };
+    /*function logout(){
+      
+    };*/
 
   $scope.isCollapsed = true;
 });

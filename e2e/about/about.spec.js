@@ -10,7 +10,7 @@ describe('About View', function() {
   beforeEach(function() {
     browser.get("/about");
     var today = new Date();
-    email = today.getHours()+today.getMinutes()+today.getSeconds()+"@"+today.getDay()+today.getMonth()+today.getYear()+".com";
+    email = today.getHours()+""+today.getMinutes()+""+today.getSeconds()+"@"+today.getDay()+""+today.getMonth()+""+today.getYear()+".com";
     message = today.getHours()+"h"+today.getMinutes()+"m"+today.getSeconds()+"s"+"  "+today.getDay()+"/"+today.getMonth()+"/"+today.getYear();
   });
 
