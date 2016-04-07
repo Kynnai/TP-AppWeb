@@ -46,7 +46,9 @@ angular.module('tpApp')
       Favoris.delete(favId);
     };
 
-    $scope.favWatched = function(favId){
-      Favoris.update(favId);
+    $scope.btnPut = function(favId){
+      var favToUpdate = Favoris.get({id: favId});
+      favToUpdate.status = 1;
+      Favoris.$update();
     };
   });
