@@ -9,9 +9,9 @@
   <header class="{{loginMessageBoxColor}}" id="successBanner" ng-hide="hideSuccess">
     <div class="container">
       <h1 class="text-center">
-        <p ng-repeat="msg in messageServeur">
+        <option ng-repeat="msg in messageServeur">
           {{ msg.message }}
-        </p></h3>
+        </option></h3>
         {{$rootScope.username}}
       </h1>
     </div>
@@ -22,9 +22,9 @@
     <div class="row text-center">
       <div class="col-md-8 col-md-offset-2">
         <h3 class="{{loginMessageBoxColor}}" id="registrationMessage">
-          <p ng-repeat="error in messageServeur">
+          <option ng-repeat="error in messageServeur">
             {{ error.message }}
-          </p>
+          </option>
         </h3>
       </div>
       <div class="col-md-2"></div>
@@ -38,8 +38,8 @@
           <label for="inputUserEmail">Courriel : </label>
         </div>
         <div class="col-md-4">
-          <p id="errorMessageEmail" ng-show="loginForm.inputUserEmail.$error.required && loginForm.inputUserEmail.$dirty" class="help-block">
-            Veuiller entrer une adresse courriel valide!
+          <p ng-show="loginForm.inputUserEmail.$error.required && loginForm.inputUserEmail.$dirty" class="help-block">
+            Vous devez entrer une adresse courriel valide
           </p>
           <input type="email" class="form-control" id="inputUserEmail" name="inputUserEmail" placeholder="Votre courriel" ng-model="user.email" ng-required="true">
         </div>
@@ -55,8 +55,8 @@
           <label for="inputUserPassword">Mot de passe : </label>
         </div>
         <div class="col-md-4">
-          <p id="errorMessagePassword" ng-show="loginForm.inputUserPassword.$error.required && loginForm.inputUserPassword.$dirty" class="help-block">
-            Veuillez entrer un mot de passe vide!
+          <p ng-show="loginForm.inputUserPassword.$error.required && loginForm.inputUserPassword.$dirty" class="help-block">
+            Mot de passe vide
           </p>
           <input type="password" class="form-control" id="inputUserPassword" name="inputUserPassword" placeholder="Votre mot de passe" ng-model="user.password" ng-required="true">
         </div>
@@ -68,7 +68,7 @@
 
     <div class="row">
       <div class="col-md-1 col-md-offset-7">
-        <button type="reset" class="btn btn-danger btn-block" id="btnErase" ng-click="btnReset()">Effacer</button>
+        <button type="reset" class="btn btn-danger btn-block" ng-click="btnReset()">Effacer</button>
       </div>
       <div class="col-md-1">
         <button type="button" class="btn btn-success btn-block" id="btnConnect" ng-disabled="loginForm.$invalid || loginForm.$pristine" ng-click="btnConnect()">Connexion</button></div>
