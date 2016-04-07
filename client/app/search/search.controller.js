@@ -20,12 +20,15 @@ angular.module('tpApp')
       var movieId = id.substring(2);
       console.log(movieId);
       $http({ method: 'POST',
-              url: 'https://crispesh.herokuapp.com/?'+ user +'/api/favs/',
-              params: {movie_id: movieId}}
+              url: 'https://crispesh.herokuapp.com/api/favs/',
+              params: {movie_id: movieId, status: 0}
+      }
       )
         .then(
-          function successCallback(){
+          function successCallback(response){
             $scope.isAdded = true;
+            console.log(response);
+            $root.reload();
           }
           ,
           function errorCallback(response){
