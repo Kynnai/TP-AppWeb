@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('tpApp')
-  .controller('TPSearchCtrl', function ($scope, $http, $root) {
+  .controller('TPSearchCtrl', function ($scope, $http) {
 
     $scope.movies = {};
     $scope.query ='';
@@ -10,7 +10,6 @@ angular.module('tpApp')
     $scope.isAdded = false;
 
     var jwt = localStorage.getItem('JWT');
-    var user = localStorage.getItem('USER');
 
     if(jwt !== null){
       $scope.isConnected = true;
@@ -18,17 +17,18 @@ angular.module('tpApp')
 
     $scope.addToFavorite = function(id){
       var movieId = id.substring(2);
-      console.log(movieId);
+      //console.log(movieId);
+      //console.log(jwt);
       $http({ method: 'POST',
-              url: 'https://crispesh.herokuapp.com/api/favs/',
-              params: {movie_id: movieId, status: 0}
+              url: 'https://crispesh.herokuapp.com/api/favs',
+              data: {movie_id: movieId}
       }
       )
         .then(
           function successCallback(response){
             $scope.isAdded = true;
             console.log(response);
-            $root.reload();
+            reload();
           }
           ,
           function errorCallback(response){
