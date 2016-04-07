@@ -3,7 +3,7 @@
 describe('Controller: LogoutCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('fs3App'));
+  beforeEach(module('tpApp'));
 
   var LogoutCtrl, scope;
 

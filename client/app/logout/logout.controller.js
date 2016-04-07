@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('fs3App')
+angular.module('tpApp')
   .controller('LogoutCtrl', function ($scope) {
     $scope.message = 'Hello';
   });
