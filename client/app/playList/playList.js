@@ -6,6 +6,6 @@ angular.module('tpApp')
       .state('playList', {
         url: '/playList',
         templateUrl: 'app/playList/playList.html',
-        controller: 'PlayListCtrl'
+        controller: 'TPPlayListCtrl'
       });
   });

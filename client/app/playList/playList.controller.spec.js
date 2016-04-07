@@ -1,16 +1,16 @@
 'use strict';
 
-describe('Controller: PlayListCtrl', function () {
+describe('Controller: TPPlayListCtrl', function () {
 
   // load the controller's module
   beforeEach(module('tpApp'));
 
-  var PlayListCtrl, scope;
+  var TPPlayListCtrl, scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    PlayListCtrl = $controller('PlayListCtrl', {
+    TPPlayListCtrl = $controller('TPPlayListCtrl', {
       $scope: scope
     });
   }));
