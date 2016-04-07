@@ -16,17 +16,16 @@ angular.module('tpApp')
     }
 
     $scope.addToFavorite = function(id){
-      var movieId = id.substring(2);
       $http({ method: 'POST',
               url: 'https://crispesh.herokuapp.com/api/favs',
-              data: {movie_id: movieId}
+              data: {movie_id: id}
       }
       )
         .then(
           function successCallback(response){
             $scope.isAdded = true;
             console.log(response);
-            reload();
+            location.reload();
           }
           ,
           function errorCallback(response){

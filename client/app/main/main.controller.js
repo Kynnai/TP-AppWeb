@@ -1,11 +1,13 @@
 'use strict';
 angular.module('tpApp')
-  .controller('TPMainCtrl', function ($scope, $http) {
+  .controller('TPMainCtrl', function ($scope, $http, Comments) {
 
     $scope.movies = {};
     $scope.errorMessage ='';
+    $scope.allComments = Comments.query();
+    $scope.movieFilter ='';
 
-    $scope.afficher = function(){
+    $scope.showMovies = function(){
       $http({ method: 'GET',
               url: 'https://www.omdbapi.com/?',
               params: {s: 'the', type:'movie', y: 2016},
@@ -19,7 +21,16 @@ angular.module('tpApp')
           function errorCallback(response){
             console.log(response);
             $scope.errorMessage= 'Erreur serveur';
-          })
+          });
+
+    $scope.deleteComment = function(id){
+      Comments.delete(id);
+    };
+
+    $scope.updateComment = function(id){
+      var comment = Comments.get({movie_id: id});
+      comment.$update();
+    }
   }});
 
 //# sourceMappingURL=main.controller.js.map
