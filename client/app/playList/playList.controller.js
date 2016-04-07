@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('tpApp')
-  .controller('TPPlayListCtrl', function ($scope, $http) {
+  .controller('TPPlayListCtrl', function ($scope, $http, Favoris) {
     $scope.movies = [];
     $http({
         method: 'GET',
@@ -41,4 +41,12 @@ angular.module('tpApp')
 
       });
     }
+
+    $scope.deleteFav = function(favId){
+      Favoris.delete(favId);
+    };
+
+    $scope.favWatched = function(favId){
+      Favoris.update(favId);
+    };
   });
