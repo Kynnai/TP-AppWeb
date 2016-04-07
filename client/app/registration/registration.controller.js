@@ -2,9 +2,9 @@
 
 angular.module('tpApp')
   .controller('TPRegistrationCtrl', function ($scope, $http) {
-      
+
       $scope.hideSuccess = true;
-      
+
       $scope.user = [{firstName: null},
                     {lastName: null},
                     {email: null},
@@ -34,6 +34,7 @@ angular.module('tpApp')
                   function errorCallback(response){
                       $scope.registrationMessage.color = "alert-danger";
                       $scope.messageServeur = [{message: null}];
+                      $scope.messageServeur.push({message: null});
                       $scope.messageServeur.push({message: response.data.code + " " + response.data.message});
                       $scope.messageServeur.push({message: null});
                       angular.forEach(response.data.errors, function(value, key){

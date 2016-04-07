@@ -56,27 +56,14 @@ angular.module('tpApp')
         },
         {
           'title': 'Déconnexion',
-          'state': null
+          'state': 'logout'
         }
       ];
     }
 
-    function logout(){
-      localStorage.removeItem('JWT');
-      location.href="/main"
-    };
-
-   /* $scope.logout = function(){
-      $rootScope.$broadcast('user:logout', {});
-      localstorage.removeItem('JWT');
-    }*/
+    /*function logout(){
+      
+    };*/
 
   $scope.isCollapsed = true;
-  //end-non-standard
-
-  /*constructor() {
-    }*/
 });
-
-//angular.module('tpApp')
-  //.controller('NavbarController', NavbarController);

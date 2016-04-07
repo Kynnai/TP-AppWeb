@@ -9,8 +9,7 @@ angular.module('tpApp')
                     {reason: null},
                     {message: null}];
 
-      $scope.myReason = [{description: null},
-                       {description: 'Bug trouvé'},
+      $scope.myReason = [{description: 'Bug trouvé'},
                        {description: 'Commentaire'},
                        {description: 'Plainte'},
                        {description: 'Recommendations'}];
