@@ -26,7 +26,8 @@ module.exports = function(config) {
       'client/app/app.js',
       'client/{app,components}/**/*.module.js',
       'client/{app,components}/**/*.js',
-      'client/{app,components}/**/*.html'
+      'client/{app,components}/**/*.html',
+      'client/app/main/main.comtroller.spec.js'
     ],
 
     preprocessors: {
