@@ -4,8 +4,8 @@ angular.module('tpApp')
 
     $scope.movies = {};
     $scope.errorMessage ='';
-    $scope.allComments = Comments.query();
     $scope.movieFilter ='';
+    $scope.comment = '';
 
     $scope.showMovies = function(){
       $http({ method: 'GET',
@@ -23,12 +23,55 @@ angular.module('tpApp')
             $scope.errorMessage= 'Erreur serveur';
           });
 
+      $scope.showComments = function(){
+        
+      };
+
+
+    $scope.addComment = function(id){
+      $http({ method: 'POST',
+          url: 'https://crispesh.herokuapp.com/api/comments',
+          data: { body: $scope.comment,
+                  movie_id: id,
+                  status: 0}
+      }
+      )
+        .then(
+          function successCallback(response){
+            $scope.isAdded = true;
+            console.log(response);
+            //location.reload();
+          }
+          ,
+          function errorCallback(response){
+            console.log(response);
+            $scope.errorMessage= 'Erreur serveur';
+          }
+        )
+    };
+
     $scope.deleteComment = function(id){
-      Comments.delete(id);
+      $http({
+          method: 'DELETE',
+          url: 'https://crispesh.herokuapp.com/api/comments/'+id
+        }
+      )
+        .then(
+          function successCallback(response) {
+            console.log(response);
+            location.reload();
+          }
+          ,
+          function errorCallback(response) {
+            $scope.errorMessage = 'Erreur serveur';
+            console.log(response);
+          }
+        );
     };
 
     $scope.updateComment = function(id){
       var comment = Comments.get({movie_id: id});
+      comment.
       comment.$update();
     }
   }});

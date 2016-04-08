@@ -3,7 +3,7 @@
 var myApp = angular.module('tpApp');
 
 myApp.service('Favoris', function ($resource) {
-  var restAPIUrl = 'https://crispesh.herokuapp.com/api';
-  return $resource(restAPIUrl + '/favs/:movie_id', { 'movie_id': '@favId' }, { update: { method: 'PUT' } });
+  var restAPIUrl = 'https://crispesh.herokuapp.com/api/favs';
+  return $resource(restAPIUrl + '/:id', { 'id': '@id' }, { update: { method: 'PUT' } });
 });
 //# sourceMappingURL=favoris.service.js.map
