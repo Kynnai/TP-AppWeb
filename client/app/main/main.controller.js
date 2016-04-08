@@ -2,10 +2,15 @@
 angular.module('tpApp')
   .controller('TPMainCtrl', function ($scope, $http, Comments) {
 
+    $scope.user = localStorage.getItem('USER');
+
     $scope.movies = {};
     $scope.errorMessage ='';
-    $scope.movieFilter ='';
-    $scope.comment = '';
+    $scope.commentToAdd = { body: '',
+                            movie_id:''};
+    $scope.commentToUpdate = { body: '',
+                                id:''};
+    $scope.commentsForAMovie = [];
 
     $scope.showMovies = function(){
       $http({ method: 'GET',
@@ -16,6 +21,9 @@ angular.module('tpApp')
         .then(
           function successCallback(response){
             $scope.movies = response.data.Search;
+            if($scope.user !== null){
+              findComments($scope.movies);
+            }
           }
           ,
           function errorCallback(response){
@@ -23,34 +31,50 @@ angular.module('tpApp')
             $scope.errorMessage= 'Erreur serveur';
           });
 
-      $scope.showComments = function(){
-        
-      };
+     function findComments (movies){
+       angular.forEach(movies, function(value, key){
+          $http({ method: 'GET',
+                  url:'http://crispesh.herokuapp.com/api/comments',
+                  params: {movie_id:value.imdbID},
+                  timeout:5000
+          })
+          .then(
+            function successCallback(response){
+              angular.forEach(response.data, function(value, key){
+                $scope.commentsForAMovie.push({my: value, isAdded: true, date:value.date_created.substring(0,10), modif:false});
+              })
 
+            },
+            function errorCallback(response){
+              $scope.errorMessage = 'Erreur lors du chargement des commentaires'
+            }
+          )
+
+       })
+      }
 
     $scope.addComment = function(id){
+      $scope.commentToAdd.movie_id = id;
       $http({ method: 'POST',
           url: 'https://crispesh.herokuapp.com/api/comments',
-          data: { body: $scope.comment,
-                  movie_id: id,
+          data: { body: $scope.commentToAdd.body,
+                  movie_id: $scope.commentToAdd.movie_id,
                   status: 0}
       }
       )
         .then(
           function successCallback(response){
-            $scope.isAdded = true;
-            console.log(response);
-            //location.reload();
+            location.reload();
           }
           ,
           function errorCallback(response){
             console.log(response);
-            $scope.errorMessage= 'Erreur serveur';
+            $scope.errorMessage= "Erreur d'envoi du commentaire";
           }
         )
     };
 
-    $scope.deleteComment = function(id){
+    $scope.deleteCommentBtn = function(id){
       $http({
           method: 'DELETE',
           url: 'https://crispesh.herokuapp.com/api/comments/'+id
@@ -58,22 +82,36 @@ angular.module('tpApp')
       )
         .then(
           function successCallback(response) {
-            console.log(response);
             location.reload();
           }
           ,
           function errorCallback(response) {
             $scope.errorMessage = 'Erreur serveur';
-            console.log(response);
           }
         );
     };
 
-    $scope.updateComment = function(id){
-      var comment = Comments.get({movie_id: id});
-      comment.
-      comment.$update();
+    $scope.updateCommentBtn = function(id){
+      $scope.commentToUpdate.id = id;
+      $http({
+          method: 'PUT',
+          url: 'https://crispesh.herokuapp.com/api/comments/'+commentToUpdate.id,
+          data: { movie_id: movie.my.imdbID,
+                  body: $scope.commentToUpdate.body,
+                  status: 0}
+        }
+      )
+        .then(
+          function successCallback(response) {
+            location.reload();
+          }
+          ,
+          function errorCallback(response) {
+            $scope.errorMessage = 'Erreur serveur';
+          }
+        );
     }
+
   }});
 
 //# sourceMappingURL=main.controller.js.map
