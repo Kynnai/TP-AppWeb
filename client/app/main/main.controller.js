@@ -1,6 +1,6 @@
 'use strict';
 angular.module('tpApp')
-  .controller('TPMainCtrl', function ($scope, $http, Comments) {
+  .controller('TPMainCtrl', function ($scope, $http) {
 
     $scope.user = localStorage.getItem('USER');
 
@@ -8,8 +8,6 @@ angular.module('tpApp')
     $scope.errorMessage ='';
     $scope.commentToAdd = { body: '',
                             movie_id:''};
-    $scope.commentToUpdate = { body: '',
-                                id:''};
     $scope.commentsForAMovie = [];
 
     $scope.showMovies = function(){
@@ -91,13 +89,17 @@ angular.module('tpApp')
         );
     };
 
-    $scope.updateCommentBtn = function(id){
-      $scope.commentToUpdate.id = id;
+    $scope.updateCommentBtn = function(commentId, movieId, comment){
+
+      var commentToUpdate = {body: comment.my.body,
+                                id: commentId,
+                                movie_id:movieId};
+      console.log(commentToUpdate);
       $http({
           method: 'PUT',
           url: 'https://crispesh.herokuapp.com/api/comments/'+commentToUpdate.id,
-          data: { movie_id: movie.my.imdbID,
-                  body: $scope.commentToUpdate.body,
+          data: { movie_id: commentToUpdate.movie_id,
+                  body: commentToUpdate.body,
                   status: 0}
         }
       )

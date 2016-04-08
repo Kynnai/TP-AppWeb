@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('tpApp')
-  .controller('TPPlayListCtrl', function ($scope, $http, Favoris) {
+  .controller('TPPlayListCtrl', function ($scope, $http) {
     $scope.movies = [];
     $http({
         method: 'GET',

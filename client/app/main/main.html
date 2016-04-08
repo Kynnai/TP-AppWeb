@@ -25,8 +25,8 @@
                       <h5 class="text-left col-md-4"><b>{{ comment.my.user.username }}:</b></h5><p class="text-right col-md-3 col-md-offset-5">{{comment.date}}</p>
                       <p ng-if="!comment.modif" class="text-left col-md-12">{{comment.my.body}}</p>
                       <div ng-if="comment.modif">
-                        <textarea class="col-md-4" id="inputUpdateComment" name="inputUpdateComment" ng-model="commentToUpdate.body" ng-required="true">{{comment.my.body}}</textarea>
-                        <button class="btn btn-success col-md-2 col-md-offset-9" type="button" id="updateCommentBtn" ng-click="updateCommentBtn(comment.my.id)">Confirmer</button>
+                        <textarea class="col-md-4" id="inputUpdateComment" name="inputUpdateComment" ng-model="comment.my.body" ng-required="true">{{comment.my.body}}</textarea>
+                        <button class="btn btn-success col-md-2 col-md-offset-9" type="button" id="updateCommentBtn" ng-click="updateCommentBtn(comment.my.id, comment.my.movie_id, comment)">Confirmer</button>
                       </div>
                       <div ng-if="user == comment.my.user.username">
                         <button ng-if="!comment.modif" class="btn btn-warning col-md-2 col-md-offset-8" type="button" id=comment.my.id ng-click="comment.modif=true">Modifier</button>
