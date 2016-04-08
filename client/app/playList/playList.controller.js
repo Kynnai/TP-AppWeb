@@ -31,9 +31,12 @@ angular.module('tpApp')
             if(value.status === 0){
               isSeen = true;
             }
+            if(response.data.Poster === 'N/A'){
+              var myImg = document.createElement('img');
+              myImg.src = "img.default_poster.jpg";
+              response.data.Poster = "http://www.reelviews.net/resources/img/default_poster.jpg";
+            }
             $scope.movies.push({my: response.data, id: value.id, isSeen: isSeen});
-            console.log(value.status);
-            console.log(isSeen);
           }
           ,
           function errorCallback(response) {
@@ -52,13 +55,11 @@ angular.module('tpApp')
       )
         .then(
           function successCallback(response) {
-            console.log(response);
             location.reload();
           }
           ,
           function errorCallback(response) {
             $scope.errorMessage = 'Erreur serveur';
-            console.log(response);
           }
         );
     };

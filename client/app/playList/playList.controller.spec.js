@@ -1,21 +1,17 @@
 'use strict';
 
 describe('Controller: TPPlayListCtrl', function () {
-
   // load the controller's module
   beforeEach(module('tpApp'));
-
-  var TPPlayListCtrl, scope;
-
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    TPPlayListCtrl = $controller('TPPlayListCtrl', {
-      $scope: scope
-    });
+  var $controller;
+  beforeEach(inject(function (_$controller_) {
+    // The injector unwraps the underscores (_) from around the parameter names when matching
+    $controller = _$controller_;
   }));
 
-  it('should ...', function () {
-    expect(1).toEqual(1);
+  it('Retourne «Vrai» dans toutes les situations', function () {
+    expect(true).toEqual(true);
   });
+
 });
+//# sourceMappingURL=main.controller.spec.js.map

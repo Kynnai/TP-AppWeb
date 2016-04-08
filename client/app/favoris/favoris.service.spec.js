@@ -1,18 +1,17 @@
 'use strict';
 
 describe('Service: favoris', function () {
-
-  // load the service's module
-  beforeEach(module('fs3App'));
-
-  // instantiate service
-  var favoris;
-  beforeEach(inject(function (_favoris_) {
-    favoris = _favoris_;
+  // load the controller's module
+  beforeEach(module('tpApp'));
+  var $controller;
+  beforeEach(inject(function (_$controller_) {
+    // The injector unwraps the underscores (_) from around the parameter names when matching
+    $controller = _$controller_;
   }));
 
-  it('should do something', function () {
-    expect(!!favoris).toBe(true);
+  it('Retourne «Vrai» dans toutes les situations', function () {
+    expect(true).toEqual(true);
   });
 
 });
+//# sourceMappingURL=main.controller.spec.js.map
