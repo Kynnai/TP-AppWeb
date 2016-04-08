@@ -32,8 +32,6 @@ angular.module('tpApp')
               isSeen = true;
             }
             if(response.data.Poster === 'N/A'){
-              var myImg = document.createElement('img');
-              myImg.src = "img.default_poster.jpg";
               response.data.Poster = "http://www.reelviews.net/resources/img/default_poster.jpg";
             }
             $scope.movies.push({my: response.data, id: value.id, isSeen: isSeen});
@@ -55,7 +53,6 @@ angular.module('tpApp')
       )
         .then(
           function successCallback(response) {
-            location.reload();
           }
           ,
           function errorCallback(response) {

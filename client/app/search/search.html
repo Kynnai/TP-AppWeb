@@ -38,16 +38,16 @@
       <div ng-repeat="movie in movies">
         <div class="row">
           <div class="col-md-2 col-md-offset-3 text-center">
-            <h4>{{movie.Title}}</h4>
+            <h4>{{movie.my.Title}}</h4>
           </div>
           <div class="col-md-4">
-            <img src="{{movie.Poster}}">
+            <img src="{{movie.my.Poster}}">
           </div>
           <div class="col-md-3"></div>
         </div>
         <br>
-        <div ng-disabled="isAdded" ng-show="isConnected" class="col-md-1 col-md-offset-6">
-          <button class="btn btn-success btn-block" type="button" id="addMovie" ng-click="addToFavorite(movie.imdbID)">Ajouter aux favoris</button>
+        <div ng-show="isConnected" class="col-md-1 col-md-offset-6">
+          <button class="btn btn-success btn-block" type="button" id="addMovie" ng-disabled="movie.isAdded" ng-click="addToFavorite(movie)">Ajouter aux favoris</button>
         </div>
         <br><br>
       </div>
