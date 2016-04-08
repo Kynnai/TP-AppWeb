@@ -1,8 +1,8 @@
 <div ng-controller="TPPlayListCtrl">
 
-  <header class="hero-unit" id="banner" ng-show="hideSuccess">
+  <header class="hero-unit" id="banner">
     <div class="container">
-      <h1>Liste de film</h1>
+      <h1>Liste de film(s)</h1>
     </div>
   </header>
 
@@ -14,7 +14,7 @@
 
   <div ng-repeat="movie in movies">
     <div class="col-md-12">
-      <div class="row">
+      <div class="row" ng-show="movie.isAdded">
         <div class="col-md-5 col-md-offset-3 text-center">
           <h2>{{movie.my.Title}}</h2>
           <img src="{{movie.my.Poster}}">
@@ -23,7 +23,7 @@
           <br><br><br><br>
         </div>
         <div class="col-md-1">
-          <button class="btn btn-danger btn-block" id="btnDelete" ng-click="btnDelete(movie.id)">Enlever</button>
+          <button class="btn btn-danger btn-block" id="btnDelete" ng-click="btnDelete(movie)">Enlever</button>
           <button class="btn btn-warning btn-block" id="btnPut" ng-disabled="movie.isSeen" ng-click="btnPut(movie)" >Vue</button>
         </div>
         <div class="col-md-3"></div>
