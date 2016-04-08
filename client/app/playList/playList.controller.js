@@ -11,11 +11,9 @@ angular.module('tpApp')
       .then(
         function successCallback(response) {
           findMovies(response.data);
-          console.log(response.data);
         }
         ,
         function errorCallback(response) {
-          console.log(response);
           $scope.errorMessage = 'Erreur serveur';
         }
       );
@@ -29,12 +27,16 @@ angular.module('tpApp')
         })
         .then(
           function successCallback(response) {
-            $scope.movies.push({my: response.data});
-            console.log(response.data.Title);
+            var isSeen = false;
+            if(value.status === 0){
+              isSeen = true;
+            }
+            $scope.movies.push({my: response.data, id: value.id, isSeen: isSeen});
+            console.log(value.status);
+            console.log(isSeen);
           }
           ,
           function errorCallback(response) {
-            console.log(response);
             $scope.errorMessage = 'Erreur serveur';
           }
         );
@@ -42,13 +44,57 @@ angular.module('tpApp')
       });
     }
 
-    $scope.deleteFav = function(favId){
-      Favoris.delete(favId);
+    $scope.btnDelete = function(favId){
+      $http({
+          method: 'DELETE',
+          url: 'https://crispesh.herokuapp.com/api/favs/'+favId,
+        }
+      )
+        .then(
+          function successCallback(response) {
+            console.log(response);
+            location.reload();
+          }
+          ,
+          function errorCallback(response) {
+            $scope.errorMessage = 'Erreur serveur';
+            console.log(response);
+          }
+        );
     };
 
-    $scope.btnPut = function(favId){
-      var favToUpdate = Favoris.get({id: favId});
-      favToUpdate.status = 1;
-      Favoris.$update();
+    function getOne(id){
+      $http({
+          method: 'GET',
+          url: 'https://crispesh.herokuapp.com/api/favs/'+id,
+        }
+      )
+        .then(
+          function successCallback(response) {
+          }
+          ,
+          function errorCallback(response) {
+            $scope.errorMessage = 'Erreur serveur';
+
+          }
+        );
     };
+
+    $scope.btnPut = function(movie){
+      $http({
+          method: 'PUT',
+          url: 'https://crispesh.herokuapp.com/api/favs/'+movie.id,
+          data: {movie_id: movie.my.imdbID, status: 0}
+        }
+      )
+        .then(
+          function successCallback(response) {
+            location.reload();
+          }
+          ,
+          function errorCallback(response) {
+            $scope.errorMessage = 'Erreur serveur';
+          }
+        );
+    }
   });
