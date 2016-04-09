@@ -15,7 +15,7 @@ angular.module('tpApp', [
 
     $locationProvider.html5Mode(true);
 
-    jwtInterceptorProvider.tokenGetter = function (config, jwtHelper) {
+    jwtInterceptorProvider.tokenGetter = ['config', 'jwtHelper', function (config, jwtHelper) {
 
       if (config.url.substr(config.url.length - 5) === '.html' || config.url.indexOf('/api/') === -1) {
         return null;
@@ -33,7 +33,7 @@ angular.module('tpApp', [
         console.log("Token not expired", jwtHelper.getTokenExpirationDate(jwt));
         return jwt;
       }
-    };
+    }];
 
     $httpProvider.interceptors.push('jwtInterceptor');
   });
