@@ -41,6 +41,9 @@ angular.module('tpApp')
             }
             else{
               angular.forEach(response.data.Search, function(value){
+                if(value.Poster === 'N/A'){
+                  value.Poster = "http://www.reelviews.net/resources/img/default_poster.jpg";
+                }
                 $scope.movies.push({my: value, isAdded: true});
               });
             }
@@ -64,6 +67,10 @@ angular.module('tpApp')
               angular.forEach(response.data, function(value, key) {
                 if(value.movie_id === movie.imdbID){
                   isAlreadyAdded = true;
+                }
+                console.log(movie.Poster);
+                if(movie.Poster === 'N/A'){
+                  movie.Poster = "http://www.reelviews.net/resources/img/default_poster.jpg";
                 }
               });
               $scope.movies.push({my: movie, isAdded: isAlreadyAdded});
