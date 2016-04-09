@@ -2,7 +2,7 @@
 
 var config = browser.params;
 
-fdescribe('Search View', function() {
+describe('Search View', function() {
   var page;
 
   beforeEach(function() {
