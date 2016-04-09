@@ -89,7 +89,7 @@ angular.module('tpApp')
       )
         .then(
           function successCallback(response) {
-            location.reload();
+            movie.isSeen = true;
           }
           ,
           function errorCallback(response) {
