@@ -36,7 +36,14 @@ angular.module('tpApp')
             })
         .then(
           function successCallback(response){
-            addMoviesToList(response.data.Search);
+            if($scope.isConnected){
+              addMoviesToList(response.data.Search);
+            }
+            else{
+              angular.forEach(response.data.Search, function(value){
+                $scope.movies.push({my: value, isAdded: true});
+              });
+            }
             $scope.showMovies = true;
           },
           function errorCallback(response){

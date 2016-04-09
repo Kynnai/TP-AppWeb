@@ -34,7 +34,7 @@ angular.module('tpApp')
             if(response.data.Poster === 'N/A'){
               response.data.Poster = "http://www.reelviews.net/resources/img/default_poster.jpg";
             }
-            $scope.movies.push({my: response.data, id: value.id, isSeen: isSeen});
+            $scope.movies.push({my: response.data, id: value.id, isSeen: isSeen, isAdded: true});
           }
           ,
           function errorCallback(response) {
@@ -45,14 +45,16 @@ angular.module('tpApp')
       });
     }
 
-    $scope.btnDelete = function(favId){
+    $scope.btnDelete = function(movie){
       $http({
           method: 'DELETE',
-          url: 'https://crispesh.herokuapp.com/api/favs/'+favId,
+          url: 'https://crispesh.herokuapp.com/api/favs/'+movie.id
         }
       )
         .then(
           function successCallback(response) {
+            console.log(movie.isAdded);
+            movie.isAdded = false;
           }
           ,
           function errorCallback(response) {
