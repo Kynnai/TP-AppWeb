@@ -1,5 +1,6 @@
 'use strict';
-describe('TPRegistrationCtrl', function () {
+
+describe('Controller: TPLogoutCtrl', function () {
   // load the controller's module
   beforeEach(module('tpApp'));
   var $controller;
@@ -13,3 +14,4 @@ describe('TPRegistrationCtrl', function () {
   });
 
 });
+//# sourceMappingURL=main.controller.spec.js.map

@@ -1,3 +1,43 @@
-<div class="col-md-12">
-This is the playList view.
+<div ng-controller="TPPlayListCtrl">
+
+  <header class="hero-unit" id="banner">
+    <div class="container">
+      <h1>Liste de film(s)</h1>
+    </div>
+  </header>
+
+  <br><br>
+  <div ng-show="errorMessage" class="text-center alert alert-warning">
+    {{errorMessage}}
+  </div>
+  <br><br>
+
+  <div ng-repeat="movie in movies">
+    <div class="col-md-12">
+      <div class="row" ng-show="movie.isAdded">
+        <div class="col-md-5 col-md-offset-3 text-center">
+          <h2>{{movie.my.Title}}</h2>
+          <img src="{{movie.my.Poster}}">
+          <h3>Description :</h3>
+          <p>{{movie.my.Plot}}</p>
+          <br><br><br><br>
+        </div>
+        <div class="col-md-1">
+          <button class="btn btn-danger btn-block" id="btnDelete" ng-click="btnDelete(movie)">Enlever</button>
+          <button class="btn btn-warning btn-block" id="btnPut" ng-disabled="movie.isSeen" ng-click="btnPut(movie)" >Vue</button>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in main.awesomeThings">
+          <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>

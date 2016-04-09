@@ -11,20 +11,40 @@
     {{errorMessage}}
   </div>
 
-
-  <div ng-init="afficher()">
+  <div ng-init="showMovies()">
       <div ng-repeat="movie in movies | limitTo: 6">
         <div class="row">
-          <div class="col-md-2 col-md-offset-3">
-            {{movie.Title}}
+          <div class="col-md-5 col-md-offset-3 text-center">
+            <form name="commentForm">
+              <h2>{{movie.Title}}</h2>
+              <img src="{{movie.Poster}}">
+              <div ng-if="user !== null">
+                <h3 class="text-center">Commentaires:</h3>
+                <div style="height: 120px" class="form-control" ng-repeat="comment in commentsForAMovie" ng-if="comment.my.movie_id == movie.imdbID" ng-show="comment.isAdded">
+                  <div class="row">
+                      <h5 class="text-left col-md-4"><b>{{ comment.my.user.username }}:</b></h5><p class="text-right col-md-3 col-md-offset-5">{{comment.date}}</p>
+                      <p ng-if="!comment.modif" class="text-left col-md-12">{{comment.my.body}}</p>
+                      <div ng-if="comment.modif">
+                        <textarea class="col-md-4" id="inputUpdateComment" name="inputUpdateComment" ng-model="comment.my.body" ng-required="true">{{comment.my.body}}</textarea>
+                        <button class="btn btn-success col-md-2 col-md-offset-9" type="button" id="updateCommentBtn" ng-click="updateCommentBtn(comment.my.id, comment.my.movie_id, comment)">Confirmer</button>
+                      </div>
+                      <div ng-if="user == comment.my.user.username">
+                        <button ng-if="!comment.modif" class="btn btn-warning col-md-2 col-md-offset-8" type="button" id=comment.my.id ng-click="comment.modif=true">Modifier</button>
+                        <button ng-if="!comment.modif" class="btn btn-danger col-md-1" type="button" id="deleteCommentBtn" ng-click="deleteCommentBtn(comment.my.id)">X</button>
+                      </div>
+                  </div>
+                </div>
+                <br>
+                <textarea class="form-control" id="inputComment" name="inputComment" placeholder="Votre commentaire" ng-model="commentToAdd.body" ng-required="true"></textarea>
+                <br>
+                <button class="btn btn-success" type="button" id="addComment" ng-click="addComment(movie.imdbID)">Ajouter votre commentaire</button>
+              </div>
+             </form>
           </div>
-          <div class="col-md-4">
-            <img src="{{movie.Poster}}">
-          </div>
-          <div class="col-md-3"></div>
-      </div>
+          <div class="col-md-4"></div>
+        </div>
         <br><br>
-    </div>
+      </div>
   </div>
   <div class="container">
    <div class="row">

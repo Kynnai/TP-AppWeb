@@ -9,31 +9,48 @@
 
   <form>
     <div class="row">
-      <div class="col-md-1 col-md-offset-4">
+      <div class="col-md-2 col-md-offset-3">
         <label for="searchBox" class="control-label">Titre:</label>
       </div>
-      <div class="col-md-2">
-        <input class="from-control" type="text" id="SearchBox" ng-model="query">
+      <div class="col-md-4">
+        <input type="text" class="form-control" id="searchBox" name="searchBox" placeholder="Titre du film" ng-model="query">
+      </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+      <div class="col-md-1 col-md-offset-7">
+        <button type="reset" class="btn btn-danger btn-block" id="btnErase">Effacer</button>
       </div>
       <div class="col-md-1">
         <button class="btn btn-success btn-block" type="button" id="searchButton" ng-click="btnSearch()">Soumettre</button>
       </div>
     </div>
-    <br>
-    <div ng-repeat="movie in movies">
-      <div class="row">
-       <div class="col-md-2 col-md-offset-3 text-center">
-          <h4>{{movie.Title}}</h4>
-        </div>
-        <div class="col-md-4">
-          <img src="{{movie.Poster}}">
-        </div>
-        <div class="col-md-3"></div>
-      </div>
-      <br><br>
+
+    <br><br>
+    <div ng-show="errorMessage" class="text-center alert alert-warning">
+      {{errorMessage}}
     </div>
-    <div ng-show="errorMessage" class="alert alert-warning">
-       {{errorMessage}}
+    <br><br>
+
+    <div ng-show="showMovies">
+      <div ng-repeat="movie in movies">
+        <div class="row">
+          <div class="col-md-2 col-md-offset-3 text-center">
+            <h4>{{movie.my.Title}}</h4>
+          </div>
+          <div class="col-md-4">
+            <img src="{{movie.my.Poster}}">
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+        <br>
+        <div ng-show="isConnected" class="col-md-1 col-md-offset-6">
+          <button class="btn btn-success btn-block" type="button" id="addMovie" ng-disabled="movie.isAdded" ng-click="addToFavorite(movie)">Ajouter aux favoris</button>
+        </div>
+        <br><br>
+      </div>
     </div>
   </form>
 </div>
