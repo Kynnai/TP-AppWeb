@@ -56,7 +56,7 @@ angular.module('tpApp')
         },
         {
           'title': 'Déconnexion',
-          'state': null
+          'state': 'logout'
         }
       ];
     }
