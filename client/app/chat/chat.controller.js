@@ -1,30 +1,20 @@
 'use strict';
-
 angular.module('tpApp')
-  .controller('ChatCtrl', function ($scope, mySocket) {
+  .controller('TPChatCtrl', function ($scope, mySocket) {
 
     $scope.user = localStorage.getItem('USER');
-    $scope.formBody = '';
+    $scope.formBody = null;
 
     $scope.chatMessages = [];
-     var msg = {body: '',
-                  username: '',
-                  avatar: "",
-                  textColor: ''};
+    $scope.msg = {body: '', username: '', avatar: "",textColor: ''};
 
     $scope.btnSend = function(){
-      //msg.push({body:})
-      msg.body = $scope.formBody;
-      msg.username = $scope.user;
-      msg.avatar = 'http://bridoz.com/wp-content/uploads/2015/09/275.jpg';
-      msg.textColor = '#5a52ff';
-      mySocket.emit('chat message', msg);
+      $scope.msg = {body: $scope.formBody, username: $scope.user, avatar: 'http://bridoz.com/wp-content/uploads/2015/09/275.jpg',textColor: '#5a52ff'};
+      mySocket.emit('chat message', $scope.msg);
       $scope.formBody = '';
     };
 
     mySocket.on('chat message', function(message){
       $scope.chatMessages.push(message);
-     /* console.log('Message received', msg);
-      $("#messages ul").append('<li>'-msg-'</li>');*/
     })
   });

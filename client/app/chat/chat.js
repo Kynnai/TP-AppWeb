@@ -6,6 +6,6 @@ angular.module('tpApp')
       .state('chat', {
         url: '/chat',
         templateUrl: 'app/chat/chat.html',
-        controller: 'ChatCtrl'
+        controller: 'TPChatCtrl'
       });
   });

@@ -1,6 +1,6 @@
-<div ng-controller="TPLoginCtrl">
+<div ng-controller="TPChatCtrl">
 
-  <header class="hero-unit" id="banner" ng-show="hideSuccess">
+  <header class="hero-unit" id="banner">
     <div class="container">
       <h1>Chat</h1>
       <h2>Miaooooooooooooou</h2>
@@ -15,13 +15,13 @@
     <div class="row scroll-rect">
       <div class="form-group" ng-class="{ 'has-error' : chatForm.inputBody.$error.required && chatForm.inputBody.$dirty }">
         <div class="col-md-8 col-md-offset-2">
-          <div class="container" ng-repeat="msg in chatMessages track by $index">
+          <div class="container" ng-repeat="chat in chatMessages track by $index">
             <div class="col-md-1 col-md-offset-1">
-              <b>{{msg.username}}</b>
-              <img src="{{msg.avatar}}" width="100" height="100" >
+              <b>{{chat.username}}</b>
+              <img src="{{chat.avatar}}" width="100" height="100" >
             </div>
             <div class="col-md-6">
-              <ul>{{msg.body}}</ul>
+              <ul color="{{chat.color}}">{{chat.body}}</ul>
             </div>
             <div class="col-md-4"></div>
           </div>

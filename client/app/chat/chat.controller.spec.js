@@ -1,16 +1,16 @@
 'use strict';
 
-describe('Controller: ChatCtrl', function () {
+describe('Controller: TPChatCtrl', function () {
 
   // load the controller's module
   beforeEach(module('tpApp'));
 
-  var ChatCtrl, scope;
+  var TPChatCtrl, scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    ChatCtrl = $controller('ChatCtrl', {
+    TPChatCtrl = $controller('TPChatCtrl', {
       $scope: scope
     });
   }));
