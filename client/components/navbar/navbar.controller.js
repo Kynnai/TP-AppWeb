@@ -20,6 +20,10 @@ angular.module('tpApp')
           'state': 'search'
         },
         {
+          'title': 'Tchat',
+          'state': 'chat'
+        },
+        {
           'title': 'Contact',
           'state': 'about'
         },
@@ -41,6 +45,10 @@ angular.module('tpApp')
         {
           'title': 'Recherche',
           'state': 'search'
+        },
+        {
+          'title': 'Tchat',
+          'state': 'chat'
         },
         {
           'title': 'Liste de Film',
