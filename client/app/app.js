@@ -36,7 +36,11 @@ angular.module('tpApp', [
       }
     }];
     factory('mySocket', function (socketFactory) {
-      return socketFactory();
+      var myIoSocket = io.connect('http://atomracechat.herokuapp.com/');
+      var mySocket = socketFactory({
+        ioSocket: myIoSocket
+      });
+      return mySocket;
     });
 
     $httpProvider.interceptors.push('jwtInterceptor');
