@@ -7,10 +7,12 @@ angular.module('tpApp')
     $scope.msg = {body: null,
                   username: '',
                   Avatar: "",
-                  textColor: '#EFFFFF'};
+                  textColor: ''};
 
     $scope.btnSend = function(){
-      mySocket.emit('chat message', $scope.msg.body);
+     /* $scope.msg = {body:$scope.body,
+                    username:}*/
+      mySocket.emit('chat message', $scope.msg);
       $scope.msg.body = '';
     };
 
