@@ -3,17 +3,23 @@
 angular.module('tpApp')
   .controller('ChatCtrl', function ($scope, mySocket) {
 
+    $scope.user = localStorage.getItem('USER');
+    $scope.formBody = '';
+
     $scope.chatMessages = [];
-    $scope.msg = {body: null,
+     var msg = {body: '',
                   username: '',
-                  Avatar: "",
+                  avatar: "",
                   textColor: ''};
 
     $scope.btnSend = function(){
-     /* $scope.msg = {body:$scope.body,
-                    username:}*/
-      mySocket.emit('chat message', $scope.msg);
-      $scope.msg.body = '';
+      //msg.push({body:})
+      msg.body = $scope.formBody;
+      msg.username = $scope.user;
+      msg.avatar = 'http://bridoz.com/wp-content/uploads/2015/09/275.jpg';
+      msg.textColor = '#5a52ff';
+      mySocket.emit('chat message', msg);
+      $scope.formBody = '';
     };
 
     mySocket.on('chat message', function(message){
