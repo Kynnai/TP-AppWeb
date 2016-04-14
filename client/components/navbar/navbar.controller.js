@@ -20,10 +20,6 @@ angular.module('tpApp')
           'state': 'search'
         },
         {
-          'title': 'Tchat',
-          'state': 'chat'
-        },
-        {
           'title': 'Contact',
           'state': 'about'
         },
