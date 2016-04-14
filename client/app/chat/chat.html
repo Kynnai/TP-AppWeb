@@ -1,3 +1,51 @@
-<div class="col-md-12">
-This is the chat view.
+<div ng-controller="TPLoginCtrl">
+
+  <header class="hero-unit" id="banner" ng-show="hideSuccess">
+    <div class="container">
+      <h1>Chat</h1>
+      <h2>MIaooooooooooooou</h2>
+    </div>
+  </header>
+  <br><br><br><br>
+
+  <body id="messages">
+
+  <form novalidate class="simple-form" name="chatForm">
+
+    <div class="row scroll-rect">
+      <div class="form-group" ng-class="{ 'has-error' : chatForm.inputBody.$error.required && chatForm.inputBody.$dirty }">
+        <div class="col-md-8 col-md-offset-2">
+          <li ng-repeat="msg in chatMessages"></li>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group" ng-class="{ 'has-error' : chatForm.inputBody.$error.required && chatForm.inputBody.$dirty }">
+        <div class="col-md-2 col-md-offset-2">
+          <label for="inputBody">Messages : </label>
+        </div>
+        <div class="col-md-4">
+          <input type="text" class="form-control" id="inputBody" name="inputBody" placeholder="Votre messages" ng-model="body" ng-required="true">
+          </div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-success" id="btnSend" ng-disabled="chatForm.$pristine" ng-click="btnSend()">Envoyé</button>
+          <button type="reset" class="btn btn-danger" ng-disabled="chatForm.$pristine" ng-click="btnReset()">X</button>
+        </div>
+      </div>
+        <div class="col-md-2">
+      </div>
+    </div>
+  </form>
+  </body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in main.awesomeThings">
+          <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
