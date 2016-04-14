@@ -16,7 +16,14 @@
       <div class="form-group" ng-class="{ 'has-error' : chatForm.inputBody.$error.required && chatForm.inputBody.$dirty }">
         <div class="col-md-8 col-md-offset-2">
           <div class="container" ng-repeat="msg in chatMessages track by $index">
-            <ul>{{msg}}</ul>
+            <div class="col-md-1 col-md-offset-1">
+              <b>{{msg.username}}</b>
+              <img src="{{msg.avatar}}" width="100" height="100" >
+            </div>
+            <div class="col-md-6">
+              <ul>{{msg.body}}</ul>
+            </div>
+            <div class="col-md-4"></div>
           </div>
         </div>
       </div>
