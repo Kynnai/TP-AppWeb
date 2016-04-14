@@ -15,17 +15,19 @@
     <div class="row scroll-rect">
       <div class="form-group" ng-class="{ 'has-error' : chatForm.inputBody.$error.required && chatForm.inputBody.$dirty }">
         <div class="col-md-8 col-md-offset-2">
-          <li ng-repeat="msg in chatMessages"></li>
+          <div class="container-fluid" ng-repeat="msg in chatMessages">
+            <li>msg</li>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="row">
       <div class="form-group" ng-class="{ 'has-error' : chatForm.inputBody.$error.required && chatForm.inputBody.$dirty }">
-        <div class="col-md-2 col-md-offset-2">
-          <label for="inputBody">Messages : </label>
+        <div class="col-md-1 col-md-offset-3">
+          <label class="text-right" for="inputBody">Messages : </label>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
           <input type="text" class="form-control" id="inputBody" name="inputBody" placeholder="Votre messages" ng-model="body" ng-required="true">
           </div>
         <div class="col-md-2">
@@ -33,7 +35,7 @@
           <button type="reset" class="btn btn-danger" ng-disabled="chatForm.$pristine" ng-click="btnReset()">X</button>
         </div>
       </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
       </div>
     </div>
   </form>
