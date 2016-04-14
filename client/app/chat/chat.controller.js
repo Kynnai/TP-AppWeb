@@ -9,7 +9,7 @@ angular.module('tpApp')
     $scope.msg = {body: '', username: '', avatar: "",textColor: ''};
 
     $scope.btnSend = function(){
-      $scope.msg = {body: $scope.formBody, username: $scope.user, avatar: 'http://bridoz.com/wp-content/uploads/2015/09/275.jpg',textColor: '#5a52ff'};
+      $scope.msg = {body: $scope.formBody, username: $scope.user, avatar: 'http://bridoz.com/wp-content/uploads/2015/09/275.jpg',textColor: document.chatForm.color.value};
       mySocket.emit('chat message', $scope.msg);
       $scope.formBody = '';
     };

@@ -18,16 +18,18 @@
           <div class="container" ng-repeat="chat in chatMessages track by $index">
             <div class="col-md-1 col-md-offset-1">
               <b>{{chat.username}}</b>
-              <img src="{{chat.avatar}}" width="100" height="100" >
+              <img src="{{chat.avatar}}" width="100" height="100" class="img-circle">
             </div>
             <div class="col-md-6">
-              <ul color="{{chat.color}}">{{chat.body}}</ul>
+              <ul><font color="{{chat.textColor}}">{{chat.body}}</font></ul>
             </div>
             <div class="col-md-4"></div>
           </div>
         </div>
       </div>
     </div>
+
+    <br><br>
 
     <div class="row">
       <div class="form-group" ng-class="{ 'has-error' : chatForm.inputBody.$error.required && chatForm.inputBody.$dirty }">
@@ -36,8 +38,9 @@
         </div>
         <div class="col-md-3">
           <input type="text" class="form-control" id="inputBody" name="inputBody" placeholder="Votre messages" ng-model="formBody" ng-required="true">
-          </div>
+        </div>
         <div class="col-md-2">
+          <input type="color" name="color">
           <button type="submit" class="btn btn-success" id="btnSend" ng-disabled="chatForm.$invalid || chatForm.$pristine" ng-click="btnSend()">Envoyé</button>
           <button type="reset" class="btn btn-danger" ng-disabled="chatForm.$invalid || chatForm.$pristine" ng-click="btnReset()">X</button>
         </div>
