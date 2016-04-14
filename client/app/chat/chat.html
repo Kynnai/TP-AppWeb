@@ -28,7 +28,7 @@
           <label class="text-right" for="inputBody">Messages : </label>
         </div>
         <div class="col-md-3">
-          <input type="text" class="form-control" id="inputBody" name="inputBody" placeholder="Votre messages" ng-model="body" ng-required="true">
+          <input type="text" class="form-control" id="inputBody" name="inputBody" placeholder="Votre messages" ng-model="msg.body" ng-required="true">
           </div>
         <div class="col-md-2">
           <button type="button" class="btn btn-success" id="btnSend" ng-disabled="chatForm.$invalid || chatForm.$pristine" ng-click="btnSend()">Envoyé</button>
