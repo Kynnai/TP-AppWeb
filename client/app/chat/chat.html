@@ -31,7 +31,7 @@
           <input type="text" class="form-control" id="inputBody" name="inputBody" placeholder="Votre messages" ng-model="msg.body" ng-required="true">
           </div>
         <div class="col-md-2">
-          <button type="button" class="btn btn-success" id="btnSend" ng-disabled="chatForm.$invalid || chatForm.$pristine" ng-click="btnSend()">Envoyé</button>
+          <button type="submit" class="btn btn-success" id="btnSend" ng-disabled="chatForm.$invalid || chatForm.$pristine" ng-click="btnSend()">Envoyé</button>
           <button type="reset" class="btn btn-danger" ng-disabled="chatForm.$invalid || chatForm.$pristine" ng-click="btnReset()">X</button>
         </div>
       </div>
