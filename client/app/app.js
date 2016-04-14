@@ -7,7 +7,8 @@ angular.module('tpApp', [
     'ngSanitize',
     'ui.router',
     'ui.bootstrap',
-    'angular-jwt'
+    'angular-jwt',
+    'btford.socket-io'
   ])
   .config(function($urlRouterProvider, $locationProvider, $httpProvider, jwtInterceptorProvider) {
     $urlRouterProvider
@@ -34,6 +35,9 @@ angular.module('tpApp', [
         return jwt;
       }
     }];
+    factory('mySocket', function (socketFactory) {
+      return socketFactory();
+    });
 
     $httpProvider.interceptors.push('jwtInterceptor');
   });
