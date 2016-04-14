@@ -16,7 +16,7 @@
       <div class="form-group" ng-class="{ 'has-error' : chatForm.inputBody.$error.required && chatForm.inputBody.$dirty }">
         <div class="col-md-8 col-md-offset-2">
           <div class="container-fluid" ng-repeat="msg in chatMessages">
-            <li>{{msg}}</li>
+            <ul></ul>
           </div>
         </div>
       </div>
@@ -31,8 +31,8 @@
           <input type="text" class="form-control" id="inputBody" name="inputBody" placeholder="Votre messages" ng-model="body" ng-required="true">
           </div>
         <div class="col-md-2">
-          <button type="button" class="btn btn-success" id="btnSend" ng-disabled="chatForm.$pristine" ng-click="btnSend()">Envoyé</button>
-          <button type="reset" class="btn btn-danger" ng-disabled="chatForm.$pristine" ng-click="btnReset()">X</button>
+          <button type="button" class="btn btn-success" id="btnSend" ng-disabled="chatForm.$invalid || chatForm.$pristine" ng-click="btnSend()">Envoyé</button>
+          <button type="reset" class="btn btn-danger" ng-disabled="chatForm.$invalid || chatForm.$pristine" ng-click="btnReset()">X</button>
         </div>
       </div>
         <div class="col-md-3">
