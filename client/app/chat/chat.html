@@ -16,7 +16,7 @@
       <div class="form-group" ng-class="{ 'has-error' : chatForm.inputBody.$error.required && chatForm.inputBody.$dirty }">
         <div class="col-md-8 col-md-offset-2">
           <div class="container-fluid" ng-repeat="msg in chatMessages">
-            <li>msg</li>
+            <li>{{msg}}</li>
           </div>
         </div>
       </div>
