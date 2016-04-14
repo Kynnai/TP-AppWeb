@@ -15,7 +15,7 @@
     <div class="row scroll-rect">
       <div class="form-group" ng-class="{ 'has-error' : chatForm.inputBody.$error.required && chatForm.inputBody.$dirty }">
         <div class="col-md-8 col-md-offset-2">
-          <div class="container" ng-repeat="msg in chatMessages">
+          <div class="container" ng-repeat="msg in chatMessages track by $index">
             <ul>{{msg.body}}</ul>
           </div>
         </div>
