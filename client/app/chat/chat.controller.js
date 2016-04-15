@@ -15,6 +15,9 @@ angular.module('tpApp')
     };
 
     mySocket.on('chat message', function(message){
+      if(message.avatar == null){
+        message.avatar = 'https://u.o0bc.com/avatars/no-user-image.gif'
+      }
       $scope.chatMessages.push(message);
     })
   });
