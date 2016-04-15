@@ -42,6 +42,8 @@
       ga('send', 'pageview');
     </script>
 
+    <script src="bower_components/socket.io-client/socket.io.js"></script>
+
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
     <script src="bower_components/json3/lib/json3.min.js"></script>
@@ -57,14 +59,17 @@
       <script src="bower_components/lodash/dist/lodash.compat.js"></script>
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
       <script src="bower_components/angular-jwt/dist/angular-jwt.js"></script>
+      <script src="bower_components/angular-socket-io/socket.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js(.tmp) app/app.js -->
       <script src="app/app.js"></script>
       <!-- injector:js -->
       <script src="components/util/util.module.js"></script>
-      <script src="app/playList/playList.controller.js"></script>
+      <script src="app/main/main.js"></script>
       <script src="app/app.constant.js"></script>
+      <script src="app/chat/chat.controller.js"></script>
+      <script src="app/chat/chat.js"></script>
       <script src="app/comments/comments.service.js"></script>
       <script src="app/favoris/favoris.service.js"></script>
       <script src="app/login/login.controller.js"></script>
@@ -73,8 +78,8 @@
       <script src="app/logout/logout.js"></script>
       <script src="app/logout/logout.service.js"></script>
       <script src="app/main/main.controller.js"></script>
-      <script src="app/main/main.js"></script>
       <script src="app/about/about.js"></script>
+      <script src="app/playList/playList.controller.js"></script>
       <script src="app/playList/playList.js"></script>
       <script src="app/registration/registration.controller.js"></script>
       <script src="app/registration/registration.js"></script>

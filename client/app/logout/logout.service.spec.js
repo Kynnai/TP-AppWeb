@@ -3,7 +3,7 @@
 describe('Service: logout', function () {
 
   // load the service's module
-  beforeEach(module('fs3App'));
+  beforeEach(module('tpApp'));
 
   // instantiate service
   var logout;

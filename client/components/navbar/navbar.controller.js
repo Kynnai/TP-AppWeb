@@ -43,6 +43,10 @@ angular.module('tpApp')
           'state': 'search'
         },
         {
+          'title': 'Tchat',
+          'state': 'chat'
+        },
+        {
           'title': 'Liste de Film',
           'state': 'playList'
         },

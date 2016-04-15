@@ -3,7 +3,7 @@
 describe('Directive: movieComment', function () {
 
   // load the directive's module and view
-  beforeEach(module('fs3App'));
+  beforeEach(module('tpApp'));
   beforeEach(module('components/movieComment/movieComment.html'));
 
   var element, scope;
