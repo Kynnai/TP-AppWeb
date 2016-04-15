@@ -12,16 +12,16 @@
 
   <form novalidate class="simple-form" name="chatForm">
 
-    <div class="row scroll-rect">
+    <div class="row">
       <div class="form-group" ng-class="{ 'has-error' : chatForm.inputBody.$error.required && chatForm.inputBody.$dirty }">
         <div class="col-md-8 col-md-offset-2">
-          <div class="container" ng-repeat="chat in chatMessages track by $index">
+          <div class="container img-rounded" ng-repeat="chat in chatMessages track by $index">
             <div class="col-md-1 col-md-offset-1">
               <b>{{chat.username}}</b>
               <img src="{{chat.avatar}}" width="100" height="100" class="img-circle">
             </div>
             <div class="col-md-6">
-              <ul><font color="{{chat.textColor}}">{{chat.body}}</font></ul>
+              <ul><br><font color="{{chat.textColor}}">{{chat.body}}</font></ul>
             </div>
             <div class="col-md-4"></div>
           </div>
@@ -40,7 +40,7 @@
           <input type="text" class="form-control" id="inputBody" name="inputBody" placeholder="Votre messages" ng-model="formBody" ng-required="true">
         </div>
         <div class="col-md-2">
-          <input type="color" name="color">
+          <input type="color" name="color" class="btn-default">
           <button type="submit" class="btn btn-success" id="btnSend" ng-disabled="chatForm.$invalid || chatForm.$pristine" ng-click="btnSend()">Envoyé</button>
           <button type="reset" class="btn btn-danger" ng-disabled="chatForm.$invalid || chatForm.$pristine" ng-click="btnReset()">X</button>
         </div>
