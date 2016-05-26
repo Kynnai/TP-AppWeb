@@ -1,1 +1,38 @@
-<div>This is the findFollower view.</div>
+<div ng-controller="TPSearchCtrl">
+  <header class="hero-unit" id="banner">
+    <div class="container">
+      <h1>Recherche d'utilisateur</h1>
+    </div>
+  </header>
+
+  <br><br><br><br>
+
+  <form>
+    <br>
+    <div ng-show="errorMessage" class="text-center alert alert-warning">
+      {{errorMessage}}
+    </div>
+    <br><br>
+    <div ng-show="isConnected">
+      <div ng-show="showFollowers">
+          <div class="row">
+            <div class="col-md-10 col-md-offset-2">
+              <div ng-repeat="user in allUsers">
+                <div class="col-md-2">
+                  <img src="{{user.avatar}}" width="100" height="100" class="img-circle">
+                </div>
+                <div class="col-md-10">
+                  <h3>{{user.username}}</h3>
+                    <button class="btn btn-success" type="button" id="addMovie" ng-disabled="user.status" ng-click="btnAddToFollower(user)">Ajouter aux abonnées</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <br>
+        </div>
+      </div>
+    <div ng-hide="isConnected">
+      <h1 class="text-center">Veuillez vous-connectez</h1>
+    </div>
+  </form>
+</div>
