@@ -1,5 +1,5 @@
 'use strict';
 angular.module('tpApp')
-  .controller('TPFindFollowerCtrl', function ($scope, $http) {
+  .controller('TPFindFollowerCtrl', ['$scope', '$http', function ($scope, $http) {
 
-  });
+  }]);
