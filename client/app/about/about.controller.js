@@ -1,6 +1,6 @@
 'use strict';
 angular.module('tpApp')
-  .controller('TPAboutCtrl', function ($scope, $http) {
+  .controller('TPAboutCtrl', ['$scope', '$http',  function ($scope, $http) {
 
       $scope.hideSuccess = true;
 
@@ -40,4 +40,4 @@ angular.module('tpApp')
                   }
               )
       };
-  });
+  }]);

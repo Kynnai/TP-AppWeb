@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('tpApp')
-  .controller('TPRegistrationCtrl', function ($scope, $http) {
-      
+  .controller('TPRegistrationCtrl', ['$scope', '$http', function ($scope, $http) {
+
       $scope.hideSuccess = true;
-      
+
       $scope.user = [{firstName: null},
                     {lastName: null},
                     {email: null},
@@ -43,4 +43,4 @@ angular.module('tpApp')
                   }
               )
       };
-  });
+  }]);

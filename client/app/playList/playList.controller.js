@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('tpApp')
-  .controller('TPPlayListCtrl', function ($scope, $http) {
+  .controller('TPPlayListCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.movies = [];
     $http({
         method: 'GET',
@@ -97,4 +97,4 @@ angular.module('tpApp')
           }
         );
     }
-  });
+  }]);

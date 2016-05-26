@@ -1,6 +1,6 @@
 'use strict';
 angular.module('tpApp')
-  .controller('TPChatCtrl', function ($scope, mySocket) {
+  .controller('TPChatCtrl', ['$scope', 'mySocket', function ($scope, mySocket) {
 
     $scope.user = localStorage.getItem('USER');
     $scope.formBody = null;
@@ -20,4 +20,4 @@ angular.module('tpApp')
       }
       $scope.chatMessages.push(message);
     })
-  });
+  }]);

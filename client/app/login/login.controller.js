@@ -1,6 +1,6 @@
 'use strict';
 angular.module('tpApp')
-  .controller('TPLoginCtrl', function ($scope, $http, $rootScope) {
+  .controller('TPLoginCtrl', ['$scope', '$http', '$rootScope',  function ($scope, $http, $rootScope) {
     $scope.hideSuccess = true;
 
     $scope.user = [ {email: null},
@@ -41,4 +41,4 @@ angular.module('tpApp')
           }
         )
     };
-  });
+  }]);

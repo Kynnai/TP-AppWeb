@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('tpApp')
-  .controller('TPSearchCtrl', function ($scope, $http) {
+  .controller('TPSearchCtrl', ['$scope', '$http', function ($scope, $http) {
 
     $scope.movies = [];
     $scope.query ='';
@@ -82,4 +82,4 @@ angular.module('tpApp')
         );
       return false;
     }
-  });
+  }]);

@@ -1,6 +1,6 @@
 'use strict';
 angular.module('tpApp')
-  .controller('TPMainCtrl', function ($scope, $http) {
+  .controller('TPMainCtrl', ['$scope', '$http', function ($scope, $http) {
 
     $scope.user = localStorage.getItem('USER');
 
@@ -114,6 +114,6 @@ angular.module('tpApp')
         );
     }
 
-  }});
+  }}]);
 
 //# sourceMappingURL=main.controller.js.map
