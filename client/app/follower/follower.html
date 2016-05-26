@@ -22,20 +22,22 @@
       </div>
     </div>
 
-    <!--div ng-repeat="follow in followers">
-      <div class="col-md-12">
-        <div class="row" ng-show="follow.isAdded">
-          <div class="col-md-5 col-md-offset-3 text-center">
-            <h2>{{follow.my.Title}}</h2>
-            <img src="{{follow.my.Avatar}}">
-            <h3>Nom :</h3>
-            <p>{{follow.my.Plot}}</p>
-            <br><br><br><br>
+    <div ng-init="showFollows()">
+      <div ng-repeat="follow in followers">
+        <div class="col-md-12">
+          <div class="row" ng-show="follow.isAdded">
+            <div class="col-md-5 col-md-offset-3 text-center">
+              <h2>{{follow.my.Title}}</h2>
+              <img src="{{follow.my.Avatar}}">
+              <h3>Nom :</h3>
+              <p>{{follow.my.Plot}}</p>
+              <br><br><br><br>
+            </div>
+            <div class="col-md-4"></div>
           </div>
-          <div class="col-md-4"></div>
         </div>
       </div>
-    </div-->
+    </div>
 
   <div class="container">
     <div class="row">
