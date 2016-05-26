@@ -3,7 +3,7 @@
 describe('Component: FindFollowerComponent', function () {
 
   // load the controller's module
-  beforeEach(module('fs3App'));
+  beforeEach(module('tpApp'));
 
   var FindFollowerComponent, scope;
 

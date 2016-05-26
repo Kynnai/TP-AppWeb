@@ -1,10 +1,11 @@
 'use strict';
 
-angular.module('fs3App')
+angular.module('tpApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('follower', {
         url: '/follower',
-        template: '<follower></follower>'
+        templateUrl: 'app/follower/follower.html',
+        controller: 'TPFollowerAboutCtrl'
       });
   });

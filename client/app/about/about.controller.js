@@ -23,7 +23,7 @@ angular.module('tpApp')
           $scope.hideSuccess = false;
 
           $http({   method: 'POST',
-                    url: 'http://crispesh.herokuapp.com/api/contact',
+                    url: 'http://appxapi.herokuapp.com/api/contact',
                     data: { email: "movieapi@yopmail.com",
                             reason: $scope.user.reason,
                             body: $scope.user.message,

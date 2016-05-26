@@ -5,7 +5,7 @@ angular.module('tpApp')
     $scope.movies = [];
     $http({
         method: 'GET',
-        url: 'https://crispesh.herokuapp.com/api/favs/me'
+        url: 'https://appxapi.herokuapp.com/api/favs/me'
       }
     )
       .then(
@@ -48,7 +48,7 @@ angular.module('tpApp')
     $scope.btnDelete = function(movie){
       $http({
           method: 'DELETE',
-          url: 'https://crispesh.herokuapp.com/api/favs/'+movie.id
+          url: 'https://appxapi.herokuapp.com/api/favs/'+movie.id
         }
       )
         .then(
@@ -66,7 +66,7 @@ angular.module('tpApp')
     function getOne(id){
       $http({
           method: 'GET',
-          url: 'https://crispesh.herokuapp.com/api/favs/'+id,
+          url: 'https://appxapi.herokuapp.com/api/favs/'+id,
         }
       )
         .then(
@@ -83,7 +83,7 @@ angular.module('tpApp')
     $scope.btnPut = function(movie){
       $http({
           method: 'PUT',
-          url: 'https://crispesh.herokuapp.com/api/favs/'+movie.id,
+          url: 'https://appxapi.herokuapp.com/api/favs/'+movie.id,
           data: {movie_id: movie.my.imdbID, status: 0}
         }
       )

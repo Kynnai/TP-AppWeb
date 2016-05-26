@@ -32,7 +32,7 @@ angular.module('tpApp')
      function findComments (movies){
        angular.forEach(movies, function(value, key){
           $http({ method: 'GET',
-                  url:'http://crispesh.herokuapp.com/api/comments',
+                  url:'http://appxapi.herokuapp.com/api/comments',
                   params: {movie_id:value.imdbID},
                   timeout:5000
           })
@@ -54,7 +54,7 @@ angular.module('tpApp')
     $scope.addComment = function(id){
       $scope.commentToAdd.movie_id = id;
       $http({ method: 'POST',
-          url: 'https://crispesh.herokuapp.com/api/comments',
+          url: 'https://appxapi.herokuapp.com/api/comments',
           data: { body: $scope.commentToAdd.body,
                   movie_id: $scope.commentToAdd.movie_id,
                   status: 0}
@@ -75,7 +75,7 @@ angular.module('tpApp')
     $scope.deleteCommentBtn = function(id){
       $http({
           method: 'DELETE',
-          url: 'https://crispesh.herokuapp.com/api/comments/'+id
+          url: 'https://appxapi.herokuapp.com/api/comments/'+id
         }
       )
         .then(
@@ -97,7 +97,7 @@ angular.module('tpApp')
       console.log(commentToUpdate);
       $http({
           method: 'PUT',
-          url: 'https://crispesh.herokuapp.com/api/comments/'+commentToUpdate.id,
+          url: 'https://appxapi.herokuapp.com/api/comments/'+commentToUpdate.id,
           data: { movie_id: commentToUpdate.movie_id,
                   body: commentToUpdate.body,
                   status: 0}

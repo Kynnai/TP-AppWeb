@@ -13,7 +13,7 @@ angular.module('tpApp')
           if (value !== undefined) {
             $http({
               method: 'GET',
-              url: 'https://crispesh.herokuapp.com/api/comments?movie_id=' + value,
+              url: 'https://appxapi.herokuapp.com/api/comments?movie_id=' + value,
               timeout: 5000,
             })
               .then(

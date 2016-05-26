@@ -11,7 +11,7 @@ angular.module('tpApp')
 
     $scope.btnConnect = function(){
       $http({   method: 'POST',
-        url: 'http://crispesh.herokuapp.com/api/login_check',
+        url: 'http://appxapi.herokuapp.com/api/login_check',
         data: {username: $scope.user.email,
               password: $scope.user.password}
       })

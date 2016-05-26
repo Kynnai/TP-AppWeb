@@ -51,6 +51,10 @@ angular.module('tpApp')
           'state': 'playList'
         },
         {
+          'title': 'Liste de suivis',
+          'state': 'follower'
+        },
+        {
           'title': 'Contact',
           'state': 'about'
         },

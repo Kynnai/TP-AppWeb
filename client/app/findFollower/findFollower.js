@@ -1,10 +1,11 @@
 'use strict';
 
-angular.module('fs3App')
+angular.module('tpApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('findFollower', {
         url: '/findFollower',
-        template: '<find-follower></find-follower>'
+        templateUrl: 'app/findFollower/findFollower.html',
+        controller: 'TPFindFollowerAboutCtrl'
       });
   });

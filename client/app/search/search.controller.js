@@ -16,7 +16,7 @@ angular.module('tpApp')
 
     $scope.addToFavorite = function(movie){
       $http({ method: 'POST',
-              url: 'https://crispesh.herokuapp.com/api/favs',
+              url: 'https://appxapi.herokuapp.com/api/favs',
               data: {movie_id: movie.my.imdbID}
       })
         .then(
@@ -57,7 +57,7 @@ angular.module('tpApp')
     function addMoviesToList(movies){
       $http({
           method: 'GET',
-          url: 'https://crispesh.herokuapp.com/api/favs/me'
+          url: 'https://appxapi.herokuapp.com/api/favs/me'
         }
       )
         .then(
