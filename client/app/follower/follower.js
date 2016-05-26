@@ -6,6 +6,6 @@ angular.module('tpApp')
       .state('follower', {
         url: '/follower',
         templateUrl: 'app/follower/follower.html',
-        controller: 'TPFollowerAboutCtrl'
+        controller: 'TPFollowerCtrl'
       });
   });
