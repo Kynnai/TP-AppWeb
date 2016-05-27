@@ -31,7 +31,7 @@ angular.module('tpApp')
      function findComments (movies){
        angular.forEach(movies, function(value, key){
           $http({ method: 'GET',
-                  url:'http://appxapi.herokuapp.com/api/comments',
+                  url:'https://appxapi.herokuapp.com/api/comments',
                   params: {movie_id:value.imdbID},
                   timeout:5000
           })

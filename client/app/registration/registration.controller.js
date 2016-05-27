@@ -17,7 +17,7 @@ angular.module('tpApp')
 
       $scope.btnSubmit = function(){
           $http({   method: 'POST',
-                    url: 'http://appxapi.herokuapp.com/api/register',
+                    url: 'https://appxapi.herokuapp.com/api/register',
                     data: {email: $scope.user.email,
                     password: $scope.user.password,
                     firstname: $scope.user.firstName,
