@@ -5,27 +5,11 @@ angular.module('tpApp')
     $scope.error = false;
     $scope.errorMessages = [];
     $scope.emptyArrayMessage = "";
-    $scope.followsArray = [];
-    //$scope.usersList = [];
+    $scope.listFollows = [];
 
     $scope.btnFind = function(){
       location.href="/findFollower"
     };
-
-    /*$http({
-      method: 'GET',
-      url: 'https://appxapi.herokuapp.com/api/all/users'
-    })
-      .then(
-        function successCallback(response){
-          console.log(response);
-         // $scope.usersList = response;
-        }
-        ,
-        function errorCallback(response){
-
-        }
-      );*/
 
     $scope.showFollows = function(){
       $http({
@@ -38,8 +22,10 @@ angular.module('tpApp')
               $scope.emptyArrayMessage = "Vous n'avez pas encore d'abonnements ! Cliquez sur le bouton" +
                 " \"Chercher des utilisateurs\" pour parcourir la liste des utilisateurs.";
             }
-            $scope.followsArray = response.data;
-            console.log($scope.followsArray);
+            angular.forEach(response.data, function(aFollow, key){
+              $scope.listFollows.push({follow: aFollow, avatar:"http://www.reelviews.net/resources/img/default_poster.jpg"});
+            });
+            console.log($scope.listFollows);
           }
           ,
           function errorCallback(response){

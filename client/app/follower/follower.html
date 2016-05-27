@@ -27,16 +27,19 @@
     </div>
 
     <div ng-init="showFollows()">
-      <div ng-repeat="follow in followsArray">
-        <div class="col-md-12">
-          <div class="row" ng-show="follow.isAdded">
-            <div class="col-md-5 col-md-offset-3 text-center">
-              <h2>{{follow.user}}</h2> <!-- NE PAS OUBLIER USER ICI -->
-              <img src="{{follow}}">
-              <h3>Nom :</h3>
-              <p>{{follow.user.name}}</p> <!-- VÉRIFIER LES VARIABLES DE USER -->
+      <div class="row">
+        <div class="col-md-10 col-md-offset-2">
+          <div ng-repeat="follow in listFollows">
+            <div class="row">
+              <div class="col-md-2">
+                <img src="{{follow.avatar}}" width="100" height="100" class="img-circle">
+              </div>
+              <div class="col-md-10">
+                <h4>Nom de l'utilisateur : {{follow.follow.user.username}}</h4>
+                <h4></h4>
+              </div>
             </div>
-            <div class="col-md-4"></div>
+            <br>
           </div>
         </div>
       </div>
