@@ -22,7 +22,6 @@ angular.module('tpApp')
       .then(
         function successCallback(response) {
           if($scope.isConnected) {
-            //console.log(response);
             addUsersToList(response);
           }
         },
@@ -65,7 +64,6 @@ angular.module('tpApp')
     }
 
     $scope.btnAddToFollower = function(follow) {
-      console.log({user_id: $scope.me.id, follower_id: follow.data.id, status: true});
       $http({
           method: 'POST',
           url: 'https://appxapi.herokuapp.com/api/follow',
