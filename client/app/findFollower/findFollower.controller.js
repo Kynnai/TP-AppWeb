@@ -26,8 +26,9 @@ angular.module('tpApp')
           }
         },
         function errorCallback(response) {
-          $scope.errorMessage = response.statusText + " rechargement en cours";
+          $scope.errorMessage = response.statusText;
           if(response.status == 500){
+            $scope.errorMessage += " rechargement en cours";
             location.reload();
           }
         });
