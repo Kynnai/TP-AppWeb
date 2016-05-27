@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('tpApp')
-  .directive('appxFollow', function ($http) {
+  .directive('appxFollow', ["$http", function ($http) {
     return {
       templateUrl: 'app/follow/follow.html',
       restrict: 'E',
@@ -25,4 +25,4 @@ angular.module('tpApp')
         };
       }
     };
-  });
+  }]);
