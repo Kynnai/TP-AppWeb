@@ -25,7 +25,6 @@ angular.module('tpApp')
           }
           ,
           function errorCallback(response){
-            console.log(response);
             $scope.errorMessage= 'Erreur serveur';
           });
 
@@ -66,7 +65,6 @@ angular.module('tpApp')
           }
           ,
           function errorCallback(response){
-            console.log(response);
             $scope.errorMessage= "Erreur d'envoi du commentaire";
           }
         )
@@ -94,7 +92,6 @@ angular.module('tpApp')
       var commentToUpdate = {body: comment.my.body,
                                 id: commentId,
                                 movie_id:movieId};
-      console.log(commentToUpdate);
       $http({
           method: 'PUT',
           url: 'https://appxapi.herokuapp.com/api/comments/'+commentToUpdate.id,

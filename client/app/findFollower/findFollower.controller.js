@@ -73,7 +73,6 @@ angular.module('tpApp')
         .then(
           function successCallback(response) {
             follow.status = true;
-            //console.log(response)
           }
           ,
           function errorCallback(response) {

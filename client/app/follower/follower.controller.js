@@ -25,7 +25,6 @@ angular.module('tpApp')
             angular.forEach(response.data, function(aFollow, key){
               $scope.listFollows.push({follow: aFollow, avatar:"http://www.reelviews.net/resources/img/default_poster.jpg"});
             });
-            console.log($scope.listFollows);
           }
           ,
           function errorCallback(response){

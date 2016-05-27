@@ -69,7 +69,6 @@ angular.module('tpApp')
                 if(value.movie_id === movie.imdbID){
                   isAlreadyAdded = true;
                 }
-                console.log(movie.Poster);
                 if(movie.Poster === 'N/A'){
                   movie.Poster = "http://www.reelviews.net/resources/img/default_poster.jpg";
                 }

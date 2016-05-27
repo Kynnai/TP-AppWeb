@@ -53,7 +53,6 @@ angular.module('tpApp')
       )
         .then(
           function successCallback(response) {
-            console.log(movie.isAdded);
             movie.isAdded = false;
           }
           ,
