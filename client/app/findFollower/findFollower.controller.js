@@ -4,12 +4,13 @@ angular.module('tpApp')
 
     $scope.allUsers = [];
     $scope.showFollowers = false;
-    $scope.errorMessage = '';
+    $scope.errorMessage = "";
     $scope.isConnected = false;
     $scope.isAdded = false;
 
-    var me = localStorage.getItem('USER');
+    var myUsername = localStorage.getItem('USER');
     var jwt = localStorage.getItem('JWT');
+    $scope.me = "";
     if (jwt !== null) {
       $scope.isConnected = true;
     }
@@ -21,13 +22,17 @@ angular.module('tpApp')
       .then(
         function successCallback(response) {
           if($scope.isConnected) {
-            console.log(response);
+            //console.log(response);
             addUsersToList(response);
           }
         },
         function errorCallback(response) {
-          $scope.errorMessage = 'Erreur serveur';
+          $scope.errorMessage = response.statusText + " rechargement en cours";
+          if(response.status == 500){
+            location.reload();
+          }
         });
+
 
     function addUsersToList(users){
       $http({
@@ -43,12 +48,12 @@ angular.module('tpApp')
                 if(value.follower_id == user.id){
                   isAlreadyAdded = true;
                 }
-                console.log(me);
-                if(me == user.username){
+                if(myUsername == user.username){
                   isAlreadyAdded = true;
+                  $scope.me = user;
                 }
               });
-              $scope.allUsers.push({username: user.username, status: isAlreadyAdded, id: user.id, avatar: "http://www.reelviews.net/resources/img/default_poster.jpg"});
+              $scope.allUsers.push({username: user.username, status: isAlreadyAdded, data: user, avatar: "http://www.reelviews.net/resources/img/default_poster.jpg"});
               $scope.showFollowers = true;
             })
           },
@@ -60,20 +65,21 @@ angular.module('tpApp')
     }
 
     $scope.btnAddToFollower = function(follow) {
+      console.log({user_id: $scope.me.id, follower_id: follow.data.id, status: true});
       $http({
           method: 'POST',
           url: 'https://appxapi.herokuapp.com/api/follow',
-          data: {follower_id: follow.id, status: true}
+          data: {user_id: $scope.me.id, follower_id: follow.data.id, status: true}
         }
       )
         .then(
           function successCallback(response) {
             follow.status = true;
-            console.log(response)
+            //console.log(response)
           }
           ,
           function errorCallback(response) {
-            $scope.errorMessage = 'Erreur serveur';
+            $scope.errorMessage = response.statusText
           }
         );
     };
