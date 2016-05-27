@@ -62,22 +62,4 @@ angular.module('tpApp')
         );
       return false;
     }
-
-    $scope.btnAddToFollower = function(follow) {
-      $http({
-          method: 'POST',
-          url: 'https://appxapi.herokuapp.com/api/follow',
-          data: {user_id: $scope.me.id, follower_id: follow.data.id, status: true}
-        }
-      )
-        .then(
-          function successCallback(response) {
-            follow.status = true;
-          }
-          ,
-          function errorCallback(response) {
-            $scope.errorMessage = response.statusText
-          }
-        );
-    };
   }]);
