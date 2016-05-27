@@ -20,9 +20,9 @@
               <img src="{{movie.Poster}}">
               <div ng-if="user !== null">
                 <h3 class="text-center">Commentaires:</h3>
-                <div style="height: 120px" class="form-control" ng-repeat="comment in commentsForAMovie" ng-if="comment.my.movie_id == movie.imdbID" ng-show="comment.isAdded">
+                <div style="height: 109px" class="form-control" ng-repeat="comment in commentsForAMovie" ng-if="comment.my.movie_id == movie.imdbID" ng-show="comment.isAdded">
                   <div class="row">
-                      <h5 class="text-left col-md-4"><b>{{ comment.my.user.username }}:</b></h5><p class="text-right col-md-3 col-md-offset-5">{{comment.date}}</p>
+                      <h5 class="text-left col-md-4"><b>{{ comment.my.user.username }}:</b></h5>
                       <p ng-if="!comment.modif" class="text-left col-md-12">{{comment.my.body}}</p>
                       <div ng-if="comment.modif">
                         <textarea class="col-md-4" id="inputUpdateComment" name="inputUpdateComment" ng-model="comment.my.body" ng-required="true">{{comment.my.body}}</textarea>

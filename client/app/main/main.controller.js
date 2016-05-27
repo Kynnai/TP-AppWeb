@@ -39,7 +39,7 @@ angular.module('tpApp')
           .then(
             function successCallback(response){
               angular.forEach(response.data, function(value, key){
-                $scope.commentsForAMovie.push({my: value, isAdded: true, date:value.date_created.substring(0,10), modif:false});
+                $scope.commentsForAMovie.push({my: value, isAdded: true, modif:false});
               })
 
             },
