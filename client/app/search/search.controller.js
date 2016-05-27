@@ -62,6 +62,7 @@ angular.module('tpApp')
       )
         .then(
           function successCallback(response) {
+            $scope.movies = [];
             angular.forEach(movies, function(movie, key){
               var isAlreadyAdded = false;
               angular.forEach(response.data, function(value, key) {
